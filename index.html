@@ -3,39 +3,201 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adriane Lau | Mechanical and Aerospace Engineering</title>
+  <title>Your Name | Engineering Portfolio</title>
+  <meta name="description" content="Engineering portfolio of Your Name, featuring internship, lab, and CAD design experience.">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <h1>Your Name</h1>
-  <h2>Mechanical Engineering Student | CAD Designer</h2>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="logo" href="#home">YOUR NAME</a>
+      <div class="nav-links">
+        <a href="#internship">Internship</a>
+        <a href="#lab">Luan Lab</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About Me</a>
+      </div>
+    </nav>
+  </header>
 
-  <p>
-    Welcome to my engineering portfolio. My work focuses on CAD modeling,
-    prototyping, digital fabrication, and product development.
-  </p>
+  <main>
+    <!-- HOME / INTRODUCTION -->
+    <section class="hero container" id="home">
+      <div class="hero-text">
+        <p class="eyebrow">Engineering Portfolio</p>
+        <h1>Hi, I’m <span>Your Name</span>.</h1>
+        <p class="intro">
+          I am an engineering student graduating in April [YEAR], with experience
+          in product development through my internship and hands-on research in the
+          Luan Lab. I am interested in CAD design, prototyping, manufacturing, and
+          developing practical solutions through engineering.
+        </p>
+        <div class="hero-buttons">
+          <a class="button primary" href="#projects">View My Work</a>
+          <!-- Upload your resume PDF and change the file name below if needed. -->
+          <a class="button secondary" href="resume.pdf" target="_blank">View Resume</a>
+        </div>
+      </div>
 
-  <h2>Projects</h2>
+      <div class="hero-image">
+        <!-- Replace the image src below with your own image, for example: images/headshot.jpg -->
+        <img src="images/profile-placeholder.svg" alt="Portrait or featured engineering project image">
+      </div>
+    </section>
 
-  <h3>Robot Combat Arena</h3>
-  <p>
-    Designed and fabricated a robot combat arena using AutoCAD,
-    laser-cut components, and T-slot framing.
-  </p>
+    <!-- INTERNSHIP TAB SECTION -->
+    <section class="section" id="internship">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Professional Experience</p>
+          <h2>Internship</h2>
+        </div>
 
-  <h3>Fusion 360 Clock Pendulum Tutorial Redesign</h3>
-  <p>
-    Redesigned CAD tutorial materials and developed improved pendulum
-    models to support student learning.
-  </p>
+        <div class="feature-card">
+          <div class="feature-image">
+            <!-- Replace with a permitted internship/project image. -->
+            <img src="images/internship-placeholder.svg" alt="Internship work or product development image">
+          </div>
 
-  <h3>Aynak Wearable Vision System</h3>
-  <p>
-    Contributed to product development for a wearable vision system,
-    with future work focused on PCB integration and manufacturability.
-  </p>
+          <div class="feature-content">
+            <h3>Aynak | Engineering Intern</h3>
+            <p class="meta">Add your dates here • Add location here</p>
+            <p>
+              Contributed to the development of Aynak’s wearable vision system by
+              supporting product design and engineering considerations for a compact
+              eyewear form factor.
+            </p>
+            <ul>
+              <li>Add a completed responsibility or achievement from your resume.</li>
+              <li>Add tools used, such as Fusion 360, SolidWorks, AutoCAD, or prototyping methods.</li>
+              <li><strong>Future Goal:</strong> Partner with electrical engineers to refine PCB layout and improve manufacturability.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <h2>Contact</h2>
-  <p>Email: your-email@example.com</p>
+    <!-- LUAN LAB TAB SECTION -->
+    <section class="section alternate" id="lab">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Research & Instructional Work</p>
+          <h2>Luan Lab</h2>
+        </div>
+
+        <div class="feature-card reverse">
+          <div class="feature-image">
+            <!-- Replace with an approved lab photo, CAD screenshot, or tutorial screenshot. -->
+            <img src="images/lab-placeholder.svg" alt="Luan Lab CAD tutorial or pendulum design image">
+          </div>
+
+          <div class="feature-content">
+            <h3>Fusion 360 Clock Pendulum Tutorial Redesign</h3>
+            <p class="meta">Luan Lab • Add your position and dates</p>
+            <p>
+              Redesigned instructional CAD materials to improve student understanding,
+              model safety, and design quality.
+            </p>
+            <ul>
+              <li>Developed smoothed pendulum CAD samples by applying fillets and reducing sharp-edge features.</li>
+              <li>Created labeled examples and video tutorials to guide students through the modeling process.</li>
+              <li>Documented common design mistakes and practical strategies for preventing them.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS TAB SECTION -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Projects</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <!-- Upload a picture and change src to images/robot-arena.jpg, for example. -->
+            <img src="images/arena-placeholder.svg" alt="Robot combat arena CAD model or completed build">
+            <div class="project-body">
+              <p class="tag">AutoCAD • Fabrication</p>
+              <h3>Robot Combat Arena</h3>
+              <p>
+                Designed and fabricated a “World Cup” robot combat arena using
+                laser-cut components and T-slot framing while adhering to material constraints.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <!-- Upload a picture and change src to images/pendulum.jpg, for example. -->
+            <img src="images/pendulum-placeholder.svg" alt="Fusion 360 clock pendulum CAD design">
+            <div class="project-body">
+              <p class="tag">Fusion 360 • Education</p>
+              <h3>Clock Pendulum Redesign</h3>
+              <p>
+                Created a simplified, smoothed replacement pendulum model and instructional
+                resources to support student design work.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <!-- Replace this card with another project when ready. -->
+            <img src="images/project-placeholder.svg" alt="Placeholder for an additional engineering project">
+            <div class="project-body">
+              <p class="tag">Coming Soon</p>
+              <h3>Additional Project</h3>
+              <p>
+                Add a third CAD, prototyping, manufacturing, robotics, or research project here.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ME TAB SECTION -->
+    <section class="section alternate" id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">Get To Know Me</p>
+          <h2>About Me</h2>
+          <p>
+            I am an engineering student preparing to graduate in April [YEAR].
+            Through my internship and work in the Luan Lab, I have gained experience
+            in CAD design, product development, and creating technical resources that
+            help others understand engineering design.
+          </p>
+          <p>
+            I am especially interested in opportunities involving product design,
+            prototyping, manufacturing, robotics, and wearable technology.
+          </p>
+        </div>
+
+        <div class="skills-card">
+          <h3>Skills & Tools</h3>
+          <div class="skills">
+            <span>AutoCAD</span>
+            <span>Fusion 360</span>
+            <span>Laser Cutting</span>
+            <span>T-Slot Assembly</span>
+            <span>CAD Modeling</span>
+            <span>Prototyping</span>
+          </div>
+
+          <h3 class="contact-title">Contact</h3>
+          <p><a href="mailto:your-email@example.com">your-email@example.com</a></p>
+          <p><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn Profile</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Your Name. Built with HTML and CSS.</p>
+  </footer>
 </body>
 </html>
