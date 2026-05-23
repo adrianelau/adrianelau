@@ -9,6 +9,68 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
+      /* ── AYNAK FLOATING SKILL BUBBLES ── */
+  .aynak-visual {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .aynak-skill-bubbles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .aynak-bubble {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 1.1rem;
+    border-radius: 50px;
+    font-family: var(--body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(0, 33, 71, 0.16);
+    animation: aynak-float 5s ease-in-out infinite;
+  }
+
+  /* Individual bubble placement and styling */
+  .aynak-bubble.bubble-1 {
+    top: 8%;
+    left: -2%;
+    background: var(--ocean);
+    color: #fff;
+    animation-delay: 0s;
+  }
+
+  .aynak-bubble.bubble-2 {
+    top: 42%;
+    right: -2%;
+    background: var(--sky-2);
+    color: var(--oxford);
+    animation-delay: 0.8s;
+  }
+
+  .aynak-bubble.bubble-3 {
+    bottom: 10%;
+    left: 43%;
+    background: var(--ocean-2);
+    color: #fff;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes aynak-float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-9px);
+    }
+  }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -518,20 +580,24 @@
         <div class="exp-role">Mechanical Engineering Intern</div>
       </div>
 
-      <div class="aynak-images">
-        <img src="website pics/aynakFlex.png" alt="Flexible PCB design work for Aynak wearable hardware">
-        <img src="website pics/aynakLMount.png" alt="Aynak wearable mount design">
-      </div>
+  <div class="aynak-visual">
 
-      <p class="aynak-description">
-        Supporting the mechanical development of compact wearable vision hardware through flexible PCB concepts, mounting design, and product integration.
-      </p>
+    <div class="aynak-images">
+      <img src="website pics/aynakFlex.png" alt="Flexible PCB design work for Aynak wearable hardware">
+      <img src="website pics/aynakLMount.png" alt="Aynak wearable mount design">
+    </div>
 
-      <div class="media-meta" aria-label="Related skills">
-        <span>Flex PCB</span>
-        <span>Wearables</span>
-        <span>Product Design</span>
-      </div>
+    <div class="aynak-skill-bubbles" aria-label="Related skills">
+      <span class="aynak-bubble bubble-1">Flex PCB</span>
+      <span class="aynak-bubble bubble-2">Wearables</span>
+      <span class="aynak-bubble bubble-3">Product Design</span>
+    </div>
+
+  </div>
+
+  <p class="aynak-description">
+    Supporting the mechanical development of compact wearable vision hardware through flexible PCB concepts, mounting design, and product integration.
+  </p>
 
     </div>
   </div>
