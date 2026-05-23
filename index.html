@@ -4,104 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adriane Lau — Mechanical Engineering</title>
-  <meta name="description" content="UCSD Mechanical Engineering student — product design, prototyping, robotics, wearables.">
+  <meta name="description" content="UCSD Mechanical Engineering student — product design, prototyping, robotics, and wearable technology.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
   <style>
-      /* ── AYNAK FLOATING SKILL BUBBLES ── */
-  .aynak-visual {
-    position: relative;
-    margin-bottom: 2rem;
-  }
-
-  .aynak-skill-bubbles {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .aynak-bubble {
-    position: absolute;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.45rem 1.1rem;
-    border-radius: 50px;
-    font-family: var(--body);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    box-shadow: 0 8px 20px rgba(0, 33, 71, 0.16);
-    animation: aynak-float 5s ease-in-out infinite;
-  }
-
-  /* Individual bubble placement and styling */
-  .aynak-bubble.bubble-1 {
-    top: 8%;
-    left: -2%;
-    background: var(--ocean);
-    color: #fff;
-    animation-delay: 0s;
-  }
-
-  .aynak-bubble.bubble-2 {
-    top: 42%;
-    right: -2%;
-    background: var(--sky-2);
-    color: var(--oxford);
-    animation-delay: 0.8s;
-  }
-
-  .aynak-bubble.bubble-3 {
-    bottom: 10%;
-    left: 43%;
-    background: var(--ocean-2);
-    color: #fff;
-    animation-delay: 1.5s;
-  }
-
-  @keyframes aynak-float {
-    0%, 100% {
-      transform: translateY(0px);
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-
-    50% {
-      transform: translateY(-9px);
-    }
-  }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --oxford:    #002147;
-      --oxford-2:  #082d5e;
-      --ocean:     #1a4f8a;
-      --ocean-2:   #2565a8;
-      --ocean-3:   #4a87c8;
-      --sky:       #8ab8e0;
-      --sky-2:     #c4ddf2;
-      --sky-3:     #e8f2fb;
+      --oxford: #002147;
+      --oxford-2: #082d5e;
+      --ocean: #1a4f8a;
+      --ocean-2: #2565a8;
+      --ocean-3: #4a87c8;
 
-      --beige:     #f5f1e8;
-      --beige-2:   #ede9de;
-      --beige-3:   #e4dfd3;
-      --beige-4:   #d8d2c4;
-      --white:     #fdfbf7;
+      --sky: #8ab8e0;
+      --sky-2: #c4ddf2;
+      --sky-3: #e8f2fb;
 
-      --ink:       #1c1a14;
-      --ink-2:     #4a4535;
-      --ink-3:     #8a8270;
+      --beige: #f5f1e8;
+      --beige-2: #ede9de;
+      --beige-3: #e4dfd3;
+      --beige-4: #d8d2c4;
+      --white: #fdfbf7;
 
-      --line:      rgba(0,33,71,0.1);
-      --line-warm: rgba(26,26,20,0.09);
+      --ink: #1c1a14;
+      --ink-2: #4a4535;
+      --ink-3: #8a8270;
 
-      --round:     'Varela Round', system-ui, sans-serif;
-      --body:      'Nunito', system-ui, sans-serif;
-      --ease:      cubic-bezier(0.22, 1, 0.36, 1);
+      --line-warm: rgba(26, 26, 20, 0.09);
+
+      --round: 'Varela Round', system-ui, sans-serif;
+      --body: 'Nunito', system-ui, sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: var(--body);
@@ -112,412 +58,986 @@
       overflow-x: hidden;
     }
 
-    /* ── CURSOR ── 
-    .cursor-dot {
-      position: fixed; width: 8px; height: 8px; border-radius: 50%;
-      background: var(--ocean-2); pointer-events: none;
-      transform: translate(-50%,-50%); z-index: 9999;
-      transition: width .25s, height .25s, opacity .3s;
+    section {
+      padding: 7rem 4rem;
     }
-    .cursor-ring {
-      position: fixed; width: 34px; height: 34px; border-radius: 50%;
-      border: 1.5px solid var(--ocean-3); pointer-events: none;
-      transform: translate(-50%,-50%); z-index: 9998; opacity: 0.45;
-      transition: width .2s var(--ease), height .2s var(--ease), opacity .3s;
-    }*/
 
     /* ── NAV ── */
     .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 1.2rem 4rem;
-      background: rgba(245,241,232,0.93);
+      background: rgba(245, 241, 232, 0.93);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s;
     }
-    .nav.scrolled { border-color: var(--line-warm); }
+
+    .nav.scrolled {
+      border-color: var(--line-warm);
+    }
+
     .nav-logo {
-      font-family: var(--round); font-size: 1.15rem;
-      color: var(--oxford); text-decoration: none;
+      font-family: var(--round);
+      font-size: 1.15rem;
+      color: var(--oxford);
+      text-decoration: none;
     }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
     .nav-links a {
-      font-family: var(--body); font-size: 0.8rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--ink-2); text-decoration: none; transition: color 0.2s;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+      text-decoration: none;
+      transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--ocean); }
+
+    .nav-links a:hover {
+      color: var(--ocean);
+    }
+
+    /* ── COMMON ── */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--ocean);
+      margin-bottom: 1.25rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background: var(--ocean);
+      border-radius: 2px;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .section-label .eyebrow {
+      margin-bottom: 0;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line-warm);
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.6rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.28s var(--ease);
+    }
+
+    .btn-primary {
+      background: var(--oxford);
+      color: var(--sky-2);
+    }
+
+    .btn-primary:hover {
+      background: var(--oxford-2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 33, 71, 0.22);
+    }
+
+    .btn-ocean {
+      background: var(--ocean);
+      color: #fff;
+    }
+
+    .btn-ocean:hover {
+      background: var(--ocean-2);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      color: var(--ink-2);
+      border: 1.5px solid var(--line-warm);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--ocean);
+      color: var(--ocean);
+    }
+
+    .btn-beige {
+      background: var(--beige-2);
+      color: var(--oxford);
+      border: 1.5px solid var(--beige-4);
+    }
+
+    .btn-beige:hover {
+      background: var(--beige-3);
+    }
+
+    .btn-outline-light {
+      color: var(--sky-2);
+      border: 1.5px solid rgba(196, 221, 242, 0.4);
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(196, 221, 242, 0.1);
+    }
 
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      display: grid; grid-template-columns: 1fr 1fr;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 8rem 4rem 10rem; gap: 5rem;
-      position: relative; overflow: hidden;
-      background: var(--beige);
+      padding: 8rem 4rem 10rem;
+      gap: 5rem;
+      position: relative;
+      overflow: hidden;
     }
-    /* warm beige accent panel right side */
+
     .hero-panel {
-      position: absolute; top: 0; right: 0;
-      width: 46%; height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 46%;
+      height: 100%;
       background: var(--beige-2);
-      clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
-      pointer-events: none; z-index: 0;
+      clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
     }
-    /* oxford blue accent arc */
-    .hero-arc {
-      position: absolute; top: 8%; right: 8%;
-      width: 26vw; height: 26vw; border-radius: 50%;
-      border: 1.5px solid rgba(0,33,71,0.1);
-      pointer-events: none; z-index: 0;
-    }
+
+    .hero-arc,
     .hero-arc-2 {
-      position: absolute; top: 16%; right: 14%;
-      width: 16vw; height: 16vw; border-radius: 50%;
-      border: 1px solid rgba(0,33,71,0.07);
-      pointer-events: none; z-index: 0;
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(0, 33, 71, 0.1);
     }
 
-    .hero-text { position: relative; z-index: 1; }
-
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      font-family: var(--body); font-size: 0.73rem; font-weight: 600;
-      letter-spacing: 0.13em; text-transform: uppercase;
-      color: var(--ocean); margin-bottom: 1.25rem;
+    .hero-arc {
+      top: 8%;
+      right: 8%;
+      width: 26vw;
+      height: 26vw;
     }
-    .eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--ocean); border-radius: 2px; }
+
+    .hero-arc-2 {
+      top: 16%;
+      right: 14%;
+      width: 16vw;
+      height: 16vw;
+      border-width: 1px;
+    }
+
+    .hero-text,
+    .hero-image-wrap {
+      position: relative;
+      z-index: 1;
+    }
 
     .hero h1 {
-      font-family: var(--round); font-size: clamp(2.8rem, 5vw, 5rem);
-      line-height: 1.08; color: var(--oxford);
+      font-family: var(--round);
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 1.08;
+      color: var(--oxford);
       margin-bottom: 1.5rem;
     }
-    .hero h1 em { font-style: normal; color: var(--ocean-2); }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--ocean-2);
+    }
 
     .hero-desc {
-      font-size: 1rem; color: var(--ink-2); line-height: 1.85;
-      max-width: 44ch; margin-bottom: 2.5rem; font-weight: 300;
+      font-size: 1rem;
+      color: var(--ink-2);
+      line-height: 1.85;
+      max-width: 44ch;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
     }
-    .hero-cta { display: flex; gap: 0.85rem; flex-wrap: wrap; }
 
-    /* ── BUTTONS ── */
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.6rem; font-family: var(--body); font-size: 0.8rem;
-      font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-      border-radius: 50px; text-decoration: none;
-      transition: all 0.28s var(--ease); cursor: pointer; border: none;
+    .hero-cta,
+    .about-cta {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
     }
-    .btn-primary { background: var(--oxford); color: var(--sky-2); }
-    .btn-primary:hover { background: var(--oxford-2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,33,71,0.22); }
-    .btn-ocean { background: var(--ocean); color: #fff; }
-    .btn-ocean:hover { background: var(--ocean-2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,79,138,0.28); }
-    .btn-outline { background: transparent; color: var(--oxford); border: 1.5px solid var(--oxford); }
-    .btn-outline:hover { background: var(--oxford); color: var(--sky-2); transform: translateY(-2px); }
-    .btn-ghost { background: transparent; color: var(--ink-2); border: 1.5px solid var(--line-warm); }
-    .btn-ghost:hover { border-color: var(--ocean); color: var(--ocean); }
-    .btn-beige { background: var(--beige-2); color: var(--oxford); border: 1.5px solid var(--beige-4); }
-    .btn-beige:hover { background: var(--beige-3); }
-    .btn-outline-light { background: transparent; color: var(--sky-2); border: 1.5px solid rgba(196,221,242,0.4); }
-    .btn-outline-light:hover { background: rgba(196,221,242,0.1); }
 
-    /* hero image */
     .hero-image-wrap {
-      position: relative; z-index: 1;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      justify-content: center;
     }
+
     .hero-frame {
-      width: min(390px, 90%); aspect-ratio: 4/5;
-      background: var(--beige-3); border-radius: 18px;
-      border: 1.5px solid var(--beige-4); position: relative; overflow: hidden;
+      width: min(390px, 90%);
+      aspect-ratio: 4 / 5;
+      border-radius: 18px;
+      border: 1.5px solid var(--beige-4);
+      position: relative;
     }
-    .hero-frame img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; }
+
+    .hero-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 16px;
+    }
+
     .hero-frame-accent {
-      position: absolute; bottom: -1.25rem; right: -1.25rem;
-      width: 55%; height: 55%;
-      border: 2px solid var(--sky-2); border-radius: 14px;
-      pointer-events: none; z-index: -1;
+      position: absolute;
+      bottom: -1.25rem;
+      right: -1.25rem;
+      width: 55%;
+      height: 55%;
+      border: 2px solid var(--sky-2);
+      border-radius: 14px;
+      z-index: -1;
     }
-    .img-hint {
-      position: absolute; inset: 0; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 0.6rem;
-      background: var(--beige-3); color: var(--ink-3); font-family: var(--body);
-      font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 16px;
-    }
-    .img-hint svg { opacity: 0.45; }
 
-    /* stats */
     .hero-stats {
-      position: absolute; bottom: 3.5rem; left: 4rem; right: 4rem;
-      display: flex; gap: 3rem; z-index: 1;
-      border-top: 1px solid var(--line-warm); padding-top: 2rem;
-    }
-    .stat-num { font-family: var(--round); font-size: 2.5rem; color: var(--oxford); line-height: 1; }
-    .stat-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-top: 0.25rem; }
-
-    /* ── SECTIONS ── */
-    section { padding: 7rem 4rem; }
-    .section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 4rem; }
-    .section-label .eyebrow { margin-bottom: 0; }
-    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line-warm); }
-  /* ── AYNAK FEATURED EXPERIENCE ── */
-  .exp-card.featured.aynak-featured {
-    display: block;
-    padding: 3rem;
-  }
-
-  .aynak-header {
-    margin-bottom: 2rem;
-  }
-
-  .aynak-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
-
-  .aynak-images img {
-    width: 100%;
-    height: 430px;
-    object-fit: cover;
-    display: block;
-    border-radius: 14px;
-  }
-
-  .aynak-description {
-    max-width: 70ch;
-    font-size: 0.98rem;
-    color: var(--ink-2);
-    line-height: 1.8;
-    font-weight: 300;
-    margin-bottom: 1.25rem;
-  }
-
-  /* Mobile layout */
-  @media (max-width: 960px) {
-    .exp-card.featured.aynak-featured {
-      padding: 2rem;
+      position: absolute;
+      bottom: 3.5rem;
+      left: 4rem;
+      right: 4rem;
+      z-index: 1;
+      display: flex;
+      gap: 3rem;
+      border-top: 1px solid var(--line-warm);
+      padding-top: 2rem;
     }
 
-    .aynak-images {
-      grid-template-columns: 1fr;
+    .stat-num {
+      font-family: var(--round);
+      font-size: 2.5rem;
+      color: var(--oxford);
+      line-height: 1;
     }
 
-    .aynak-images img {
-      height: auto;
-      aspect-ratio: 4 / 3;
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-top: 0.25rem;
     }
-}
-    /* ── EXPERIENCE ── */
-    .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+
+    /* ── EXPERIENCE / RESEARCH ── */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
     .exp-card {
-      background: var(--white); padding: 2.5rem 3rem;
-      position: relative; overflow: hidden;
+      background: var(--white);
+      padding: 2.5rem 3rem;
+      position: relative;
+      overflow: hidden;
       transition: background 0.3s, box-shadow 0.3s;
     }
-    .exp-card:hover { background: var(--beige); box-shadow: inset 0 0 0 1.5px var(--beige-4); }
+
+    .exp-card:hover {
+      background: var(--beige);
+      box-shadow: inset 0 0 0 1.5px var(--beige-4);
+    }
+
     .exp-card.featured {
-      grid-column: 1 / -1; display: grid;
-      grid-template-columns: 1.1fr 1fr 1fr; gap: 3rem; align-items: start;
+      grid-column: 1 / -1;
     }
-    .exp-image { aspect-ratio: 4/5; background: var(--beige-2); overflow: hidden; border-radius: 12px; }
-    .exp-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
-    .exp-image-hint {
-      width: 100%; height: 100%; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; color: var(--ink-3);
-      font-family: var(--body); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; gap: 0.5rem;
+
+    .exp-date {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 0.75rem;
     }
-    .exp-image-hint svg { opacity: 0.4; }
-    .card-image { width: 100%; aspect-ratio: 16/7; background: var(--beige-2); overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem; }
-    .card-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 8px; }
-    .card-image-hint {
-      width: 100%; height: 100%; min-height: 80px; display: flex; align-items: center;
-      justify-content: center; flex-direction: column; gap: 0.4rem;
-      color: var(--ink-3); font-family: var(--body); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+
+    .exp-title {
+      font-family: var(--round);
+      font-size: 1.7rem;
+      line-height: 1.15;
+      color: var(--oxford);
+      margin-bottom: 0.35rem;
     }
-    .card-image-hint svg { opacity: 0.35; }
+
+    .exp-role {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ocean);
+      margin-bottom: 1rem;
+    }
+
+    .exp-body {
+      font-size: 0.92rem;
+      color: var(--ink-2);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.88rem;
+      color: var(--ink-2);
+      padding-left: 1.3rem;
+      position: relative;
+      font-weight: 300;
+    }
+
+    .exp-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--ocean-3);
+    }
+
+    .card-image {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      background: var(--beige-2);
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .card-image img,
+    .proj-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
     .split-images {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.35rem;
     }
-    .split-images img { border-radius: 0; }
-    .media-meta {
-      display: flex; flex-wrap: wrap; gap: 0.4rem;
-      margin: 0.8rem 0 1.4rem;
-    }
-    .media-meta span {
-      font-family: var(--body); font-size: 0.64rem; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 0.25rem 0.65rem; border-radius: 50px;
-      color: var(--ocean-2); background: var(--sky-3);
-      border: 1px solid var(--sky-2);
-    }
-    .dark-section .media-meta span {
-      color: var(--sky-2); background: rgba(196,221,242,0.08);
-      border-color: rgba(196,221,242,0.22);
-    }
-    .exp-date { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.75rem; }
-    .exp-title { font-family: var(--round); font-size: 1.7rem; line-height: 1.15; color: var(--oxford); margin-bottom: 0.35rem; }
-    .exp-role { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ocean); margin-bottom: 1rem; }
-    .exp-body { font-size: 0.92rem; color: var(--ink-2); line-height: 1.75; font-weight: 300; }
-    .exp-bullets { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.55rem; }
-    .exp-bullets li { font-size: 0.88rem; color: var(--ink-2); padding-left: 1.3rem; position: relative; font-weight: 300; }
-    .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--ocean-3); font-size: 0.8rem; line-height: 1.8; }
 
-    /* ── OXFORD DARK SECTION ── */
-    .dark-section { background: var(--oxford); color: #fff; }
-    .dark-section .section-label::after { background: rgba(196,221,242,0.15); }
-    .dark-section .eyebrow { color: var(--sky); }
-    .dark-section .eyebrow::before { background: var(--sky); }
-    .dark-section .exp-card { background: rgba(255,255,255,0.05); }
-    .dark-section .exp-card:hover { background: rgba(196,221,242,0.08); box-shadow: inset 0 0 0 1px rgba(196,221,242,0.18); }
-    .dark-section .exp-title { color: #fff; }
-    .dark-section .exp-body { color: var(--sky-2); }
-    .dark-section .exp-bullets li { color: var(--sky-2); }
-    .dark-section .exp-date { color: rgba(196,221,242,0.4); }
-    .dark-section .exp-role { color: var(--sky); }
-    .dark-section .card-image { background: rgba(255,255,255,0.07); }
+    /* ── SHARED FLOATING BUBBLE SYSTEM ── */
+    .bubble-visual {
+      position: relative;
+    }
+
+    .bubble-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .bubble {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.4rem 0.95rem;
+      border-radius: 50px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 8px 22px rgba(0, 33, 71, 0.2);
+      animation: bubble-float 5.2s ease-in-out infinite;
+    }
+
+    .bubble.blue {
+      background: var(--ocean);
+      color: #fff;
+    }
+
+    .bubble.blue-2 {
+      background: var(--ocean-2);
+      color: #fff;
+    }
+
+    .bubble.light {
+      background: var(--sky-2);
+      color: var(--oxford);
+    }
+
+    .bubble.sky {
+      background: var(--sky);
+      color: var(--oxford);
+    }
+
+    @keyframes bubble-float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* ── AYNAK FEATURE ── */
+    .aynak-featured {
+      padding: 3rem;
+    }
+
+    .aynak-header {
+      margin-bottom: 2rem;
+    }
+
+    .aynak-visual {
+      margin-bottom: 2rem;
+    }
+
+    .aynak-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .aynak-images img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      display: block;
+      border-radius: 14px;
+    }
+
+    .aynak-description {
+      max-width: 72ch;
+      font-size: 0.98rem;
+      color: var(--ink-2);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .aynak-visual .bubble:nth-child(1) {
+      top: 8%;
+      left: -1.5%;
+      animation-delay: 0s;
+    }
+
+    .aynak-visual .bubble:nth-child(2) {
+      top: 43%;
+      right: -1.5%;
+      animation-delay: 0.8s;
+    }
+
+    .aynak-visual .bubble:nth-child(3) {
+      bottom: 9%;
+      left: 43%;
+      animation-delay: 1.5s;
+    }
+
+    /* ── RESEARCH ── */
+    .dark-section {
+      background: var(--oxford);
+      color: #fff;
+    }
+
+    .dark-section .section-label::after {
+      background: rgba(196, 221, 242, 0.15);
+    }
+
+    .dark-section .eyebrow {
+      color: var(--sky);
+    }
+
+    .dark-section .eyebrow::before {
+      background: var(--sky);
+    }
+
+    .dark-section .exp-card {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .dark-section .exp-card:hover {
+      background: rgba(196, 221, 242, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(196, 221, 242, 0.18);
+    }
+
+    .dark-section .exp-title {
+      color: #fff;
+    }
+
+    .dark-section .exp-body,
+    .dark-section .exp-bullets li {
+      color: var(--sky-2);
+    }
+
+    .dark-section .exp-date {
+      color: rgba(196, 221, 242, 0.4);
+    }
+
+    .dark-section .exp-role {
+      color: var(--sky);
+    }
+
+    .dark-section .card-image {
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .research-visual {
+      margin-bottom: 1.75rem;
+    }
+
+    .research-visual .bubble:nth-child(1) {
+      top: 10%;
+      left: -2%;
+      animation-delay: 0s;
+    }
+
+    .research-visual .bubble:nth-child(2) {
+      top: 43%;
+      right: -2%;
+      animation-delay: 0.9s;
+    }
+
+    .research-visual .bubble:nth-child(3) {
+      bottom: 8%;
+      left: 38%;
+      animation-delay: 1.7s;
+    }
 
     /* ── PROJECTS ── */
-    .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
     .proj-card {
-      background: var(--white); border: 1.5px solid var(--beige-3);
-      border-radius: 16px; overflow: hidden;
+      background: var(--white);
+      border: 1.5px solid var(--beige-3);
+      border-radius: 16px;
+      overflow: hidden;
       transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
     }
-    .proj-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px -10px rgba(0,33,71,0.12); }
-    .proj-img { width: 100%; aspect-ratio: 16/9; background: var(--beige-2); overflow: hidden; }
-    .proj-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .proj-body-wrap { padding: 1.6rem; }
-    .proj-num { font-family: var(--round); font-size: 3rem; line-height: 1; color: var(--beige-4); display: block; margin-bottom: 0.4rem; }
-    .proj-title { font-family: var(--round); font-size: 1.2rem; color: var(--oxford); margin-bottom: 0.3rem; }
-    .proj-sub { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ocean); margin-bottom: 0.75rem; }
-    .proj-desc { font-size: 0.88rem; color: var(--ink-2); line-height: 1.7; font-weight: 300; }
-    .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.1rem; }
-    .tag {
-      font-family: var(--body); font-size: 0.67rem; font-weight: 600;
-      letter-spacing: 0.05em; text-transform: uppercase;
-      padding: 0.25rem 0.75rem; border: 1.5px solid var(--sky-2);
-      color: var(--ocean-2); border-radius: 50px; background: var(--sky-3);
+
+    .proj-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px -10px rgba(0, 33, 71, 0.12);
+    }
+
+    .proj-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--beige-2);
+      overflow: hidden;
+    }
+
+    .proj-body-wrap {
+      padding: 1.6rem;
+    }
+
+    .proj-num {
+      font-family: var(--round);
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--beige-4);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .proj-title {
+      font-family: var(--round);
+      font-size: 1.2rem;
+      color: var(--oxford);
+      margin-bottom: 0.3rem;
+    }
+
+    .proj-sub {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--ocean);
+      margin-bottom: 0.75rem;
+    }
+
+    .proj-desc {
+      font-size: 0.88rem;
+      color: var(--ink-2);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .project-visual .bubble {
+      font-size: 0.6rem;
+      padding: 0.34rem 0.72rem;
+      box-shadow: 0 6px 18px rgba(0, 33, 71, 0.18);
+    }
+
+    .project-visual .top-left {
+      top: 9%;
+      left: 4%;
+      animation-delay: 0s;
+    }
+
+    .project-visual .top-right {
+      top: 30%;
+      right: 4%;
+      animation-delay: 0.7s;
+    }
+
+    .project-visual .bottom-left {
+      bottom: 30%;
+      left: 4%;
+      animation-delay: 1.4s;
+    }
+
+    .project-visual .bottom-right {
+      bottom: 9%;
+      right: 4%;
+      animation-delay: 2s;
+    }
+
+    .project-visual .bottom-center {
+      bottom: 9%;
+      left: 50%;
+      animation: bubble-float-center 5.2s ease-in-out infinite;
+      animation-delay: 1.4s;
+    }
+
+    @keyframes bubble-float-center {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(-8px);
+      }
     }
 
     /* ── ABOUT ── */
-    #about { background: var(--oxford); color: #fff; }
-    #about .section-label::after { background: rgba(196,221,242,0.15); }
-    #about .eyebrow { color: var(--sky); }
-    #about .eyebrow::before { background: var(--sky); }
+    #about {
+      background: var(--oxford);
+      color: #fff;
+    }
 
-    .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    #about .section-label::after {
+      background: rgba(196, 221, 242, 0.15);
+    }
+
+    #about .eyebrow {
+      color: var(--sky);
+    }
+
+    #about .eyebrow::before {
+      background: var(--sky);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
 
     .about-left h2 {
-      font-family: var(--round); font-size: clamp(2.2rem, 3.5vw, 4rem);
-      line-height: 1.1; color: #fff; margin-bottom: 1.5rem;
+      font-family: var(--round);
+      font-size: clamp(2.2rem, 3.5vw, 4rem);
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 1.5rem;
     }
-    .about-left h2 em { color: var(--sky); font-style: normal; }
-    .about-left p { font-size: 1rem; color: var(--sky-2); line-height: 1.85; margin-bottom: 1rem; font-weight: 300; }
-    .about-cta { display: flex; gap: 0.85rem; flex-wrap: wrap; margin-top: 2rem; }
 
-    /* distinct tools and skills lists */
-    .competencies-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
-      margin-top: 2.5rem;
+    .about-left h2 em {
+      color: var(--sky);
+      font-style: normal;
     }
-    .competency-card {
-      padding: 1.25rem;
-      border: 1px solid rgba(196,221,242,0.18);
-      border-radius: 14px;
-      background: rgba(255,255,255,0.04);
-    }
-    .competency-title {
-      font-family: var(--body); font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.13em; text-transform: uppercase;
-      color: var(--sky); margin-bottom: 1rem;
-    }
-    .competency-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .skill-chip {
-      font-family: var(--body); font-size: 0.72rem; font-weight: 600;
-      padding: 0.32rem 0.75rem; border-radius: 50px;
-      letter-spacing: 0.03em; cursor: default;
-      background: rgba(196,221,242,0.1);
+
+    .about-left p {
+      font-size: 1rem;
       color: var(--sky-2);
-      border: 1px solid rgba(196,221,242,0.18);
-      transition: background 0.25s var(--ease), transform 0.25s var(--ease);
-    }
-    .skill-chip:hover {
-      background: rgba(196,221,242,0.16);
-      transform: translateY(-2px);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+      font-weight: 300;
     }
 
-    /* about photo + floating pills */
-    .about-right { position: relative; }
-    .about-photo {
-      width: 100%; aspect-ratio: 3/4;
-      background: rgba(255,255,255,0.05);
-      overflow: hidden; border-radius: 18px;
-      border: 1.5px solid rgba(196,221,242,0.12);
+    .about-cta {
+      margin-top: 2rem;
+    }
+
+    .about-right {
       position: relative;
+      padding: 2rem 2.5rem;
     }
-    .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; }
-    .about-photo-hint {
-      position: absolute; inset: 0; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 0.5rem;
-      color: rgba(196,221,242,0.45); font-family: var(--body);
-      font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .about-photo-hint svg { opacity: 0.4; }
 
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1.5px solid rgba(196, 221, 242, 0.12);
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .about-visual .bubble {
+      font-size: 0.69rem;
+    }
+
+    /* Light about bubbles = tools */
+    .about-visual .tool-1 {
+      top: 8%;
+      left: -3%;
+      animation-delay: 0s;
+    }
+
+    .about-visual .tool-2 {
+      top: 27%;
+      right: -2%;
+      animation-delay: 0.8s;
+    }
+
+    .about-visual .tool-3 {
+      bottom: 30%;
+      right: -4%;
+      animation-delay: 1.5s;
+    }
+
+    .about-visual .tool-4 {
+      bottom: 9%;
+      left: -2%;
+      animation-delay: 2.1s;
+    }
+
+    /* Blue about bubbles = skills */
+    .about-visual .skill-1 {
+      top: 42%;
+      left: -5%;
+      animation-delay: 0.5s;
+    }
+
+    .about-visual .skill-2 {
+      top: 59%;
+      right: -4%;
+      animation-delay: 1.2s;
+    }
+
+    .about-visual .skill-3 {
+      bottom: 18%;
+      left: 27%;
+      animation-delay: 1.8s;
+    }
+
+    .about-visual .skill-4 {
+      top: 14%;
+      right: 13%;
+      animation-delay: 2.5s;
+    }
 
     /* ── FOOTER ── */
     footer {
-      background: #001530; padding: 2.5rem 4rem;
-      border-top: 1px solid rgba(196,221,242,0.08);
-      display: flex; align-items: center; justify-content: space-between;
+      background: #001530;
+      padding: 2.5rem 4rem;
+      border-top: 1px solid rgba(196, 221, 242, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .foot-name { font-family: var(--round); font-size: 1.3rem; color: var(--sky-2); }
-    .foot-copy { font-size: 0.75rem; color: rgba(196,221,242,0.35); letter-spacing: 0.05em; }
+
+    .foot-name {
+      font-family: var(--round);
+      font-size: 1.3rem;
+      color: var(--sky-2);
+    }
+
+    .foot-copy {
+      font-size: 0.75rem;
+      color: rgba(196, 221, 242, 0.35);
+      letter-spacing: 0.05em;
+    }
 
     /* ── SCROLL REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
-    .reveal.visible { opacity: 1; transform: none; }
-    .stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
-    .stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:0.05s; }
-    .stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.15s; }
-    .stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.25s; }
-    .stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.35s; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
 
-    /* ── RESPONSIVE ── */
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    }
+
+    .stagger.visible > *:nth-child(1) {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.05s;
+    }
+
+    .stagger.visible > *:nth-child(2) {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.15s;
+    }
+
+    .stagger.visible > *:nth-child(3) {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.25s;
+    }
+
+    /* ── MOBILE ── */
     @media (max-width: 960px) {
-      .nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.25rem; }
-      .hero { grid-template-columns: 1fr; padding: 7rem 2rem 12rem; gap: 3rem; }
-      .hero-image-wrap { display: none; }
-      .hero-panel, .hero-arc, .hero-arc-2 { display: none; }
-      .hero-stats { left: 2rem; right: 2rem; flex-wrap: wrap; gap: 1.5rem; }
-      section { padding: 5rem 2rem; }
-      .experience-grid { grid-template-columns: 1fr; }
-      .exp-card.featured { grid-template-columns: 1fr; gap: 1.5rem; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .about-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .competencies-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        gap: 1.1rem;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 7rem 2rem 12rem;
+        gap: 3rem;
+      }
+
+      .hero-image-wrap,
+      .hero-panel,
+      .hero-arc,
+      .hero-arc-2 {
+        display: none;
+      }
+
+      .hero-stats {
+        left: 2rem;
+        right: 2rem;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      section {
+        padding: 5rem 2rem;
+      }
+
+      .experience-grid,
+      .projects-grid,
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .aynak-featured,
+      .exp-card {
+        padding: 2rem;
+      }
+
+      .aynak-images {
+        grid-template-columns: 1fr;
+      }
+
+      .aynak-images img {
+        height: auto;
+        aspect-ratio: 4 / 3;
+      }
+
+      .bubble-layer {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .bubble,
+      .project-visual .bottom-center {
+        position: static;
+        animation: none;
+        transform: none;
+        box-shadow: none;
+      }
+
+      .research-visual,
+      .aynak-visual {
+        margin-bottom: 1.5rem;
+      }
+
+      .project-visual .bubble-layer {
+        padding: 0 1rem 1rem;
+      }
+
+      .about-right {
+        padding: 0;
+      }
+
+      .about-layout {
+        gap: 3rem;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-stats {
+        position: static;
+        margin-top: 3rem;
+      }
     }
   </style>
 </head>
+
 <body>
-
-  <div class="cursor-dot" id="dot"></div>
-  <div class="cursor-ring" id="ring"></div>
-
   <!-- NAV -->
   <nav class="nav" id="main-nav">
     <a class="nav-logo" href="#home">Adriane Lau</a>
+
     <ul class="nav-links">
       <li><a href="#experience">Experience</a></li>
       <li><a href="#research">Research</a></li>
@@ -531,119 +1051,145 @@
     <div class="hero-panel"></div>
     <div class="hero-arc"></div>
     <div class="hero-arc-2"></div>
+
     <div class="hero-text">
       <span class="eyebrow">Mechanical Engineering · UCSD '27</span>
-      <h1>Hi, I'm<br><em>Adriane.</em></h1>
+
+      <h1>
+        Hi, I'm<br>
+        <em>Adriane.</em>
+      </h1>
+
       <p class="hero-desc">
-        I'm a Mechanical Engineering student at UC San Diego Jacobs school of Engineering, graduating in April 2027. From helping Triton Robotics host its first-ever RoboMaster competition in 24-25' to designing tiny PCB flexes at Aynak Inc., I've found love in turning my design ideas into real-world solutions (especially building them).
+        I'm a Mechanical Engineering student at UC San Diego Jacobs School of Engineering, graduating in April 2027. From helping Triton Robotics host its first-ever RoboMaster competition in 2024–2025 to designing tiny PCB flexes at Aynak Inc., I've found love in turning my design ideas into real-world solutions, especially building them.
       </p>
+
       <div class="hero-cta">
         <a class="btn btn-primary" href="#experience">View My Work ↓</a>
-        <a class="btn btn-ocean" href="website pics/Adriane Lau RESUME.pdf" target="_blank">Resume ↗</a>
+        <a class="btn btn-ocean" href="website pics/Adriane Lau RESUME.pdf" target="_blank" rel="noopener">Resume ↗</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/adrianelau/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
     </div>
+
     <div class="hero-image-wrap">
       <div class="hero-frame">
         <img src="website pics/self.JPEG" alt="Adriane Lau">
         <div class="hero-frame-accent"></div>
       </div>
     </div>
+
     <div class="hero-stats">
-      <div class="stat">
+      <div>
         <div class="stat-num">2</div>
         <div class="stat-label">Years Left</div>
       </div>
-      <div class="stat">
+
+      <div>
         <div class="stat-num">3+</div>
         <div class="stat-label">Active Roles</div>
       </div>
-      <div class="stat">
+
+      <div>
         <div class="stat-num">1st</div>
         <div class="stat-label">Competition Hosted</div>
       </div>
     </div>
   </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label reveal">
-    <span class="eyebrow">Professional Experience</span>
-  </div>
-
-  <div class="experience-grid stagger">
-    <div class="exp-card featured aynak-featured">
-
-      <div class="aynak-header">
-        <div class="exp-date">Jan 2026 – Present · La Jolla, CA</div>
-        <div class="exp-title">Aynak Inc.</div>
-        <div class="exp-role">Mechanical Engineering Intern</div>
-      </div>
-
-  <div class="aynak-visual">
-
-    <div class="aynak-images">
-      <img src="website pics/aynakFlex.png" alt="Flexible PCB design work for Aynak wearable hardware">
-      <img src="website pics/aynakLMount.png" alt="Aynak wearable mount design">
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label reveal">
+      <span class="eyebrow">Professional Experience</span>
     </div>
 
-    <div class="aynak-skill-bubbles" aria-label="Related skills">
-      <span class="aynak-bubble bubble-1">Flex PCB</span>
-      <span class="aynak-bubble bubble-2">Wearables</span>
-      <span class="aynak-bubble bubble-3">Product Design</span>
+    <div class="experience-grid stagger">
+      <article class="exp-card featured aynak-featured">
+        <div class="aynak-header">
+          <div class="exp-date">Jan 2026 – Present · La Jolla, CA</div>
+          <h2 class="exp-title">Aynak Inc.</h2>
+          <div class="exp-role">Mechanical Engineering Intern</div>
+        </div>
+
+        <div class="aynak-visual bubble-visual">
+          <div class="aynak-images">
+            <img src="website pics/aynakFlex.png" alt="Flexible PCB design work for Aynak wearable hardware">
+            <img src="website pics/aynakLMount.png" alt="Aynak wearable mount design">
+          </div>
+
+          <div class="bubble-layer" aria-label="Aynak skills">
+            <span class="bubble blue">Flex PCB</span>
+            <span class="bubble light">Wearables</span>
+            <span class="bubble blue-2">Product Design</span>
+          </div>
+        </div>
+
+        <p class="aynak-description">
+          Supporting the mechanical development of compact wearable vision hardware through flexible PCB concepts, mounting design, and product integration.
+        </p>
+      </article>
     </div>
-
-  </div>
-
-  <p class="aynak-description">
-    Supporting the mechanical development of compact wearable vision hardware through flexible PCB concepts, mounting design, and product integration.
-  </p>
-
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- RESEARCH -->
   <section id="research" class="dark-section">
     <div class="section-label reveal">
       <span class="eyebrow">Research &amp; Instructional Work</span>
     </div>
+
     <div class="experience-grid stagger">
-      <div class="exp-card">
-        <div class="card-image split-images">
-          <img src="website pics/luanmold.png" alt="Luan Lab mold work">
-          <img src="website pics/luanSub.png" alt="Luan Lab subsystem work">
+      <article class="exp-card">
+        <div class="research-visual bubble-visual">
+          <div class="card-image split-images">
+            <img src="website pics/luanmold.png" alt="Luan Lab mold work">
+            <img src="website pics/luanSub.png" alt="Luan Lab subsystem work">
+          </div>
+
+          <div class="bubble-layer" aria-label="Luan Lab skills">
+            <span class="bubble blue">Fabrication</span>
+            <span class="bubble light">Prototyping</span>
+            <span class="bubble blue-2">Testing</span>
+          </div>
         </div>
-        <div class="media-meta" aria-label="Related skills">
-          <span>Fabrication</span><span>Prototyping</span><span>Testing</span>
-        </div>
-        <div class="exp-date">[Month Year] – Present · La Jolla, CA</div>
-        <div class="exp-title">Luan Lab</div>
+
+        <div class="exp-date">January 2026 – Present · La Jolla, CA</div>
+        <h2 class="exp-title">Luan Lab</h2>
         <div class="exp-role">Undergraduate Researcher</div>
-        <p class="exp-body">Supported engineering research and design work through hands-on development, documentation, and technical problem-solving.</p>
+
+        <p class="exp-body">
+          Designed a channel stamp in CAD for a photolithography substrate. A silicone membrane is created through spin coating and stamped channels, then injected with a gallium-indium substance.
+        </p>
+
         <ul class="exp-bullets">
-          <li>Add a specific research responsibility, prototype, or design contribution.</li>
-          <li>Add the technical tools or manufacturing methods you used.</li>
-          <li>Add a measurable outcome or project goal when available.</li>
+          <li>Testing new channel geometries to improve morphing systems built from programmable structures.</li>
         </ul>
-      </div>
-      <div class="exp-card">
-        <div class="card-image">
-          <img src="website pics/mae3tutoring.JPEG" alt="MAE 3 CAD tutoring materials">
+      </article>
+
+      <article class="exp-card">
+        <div class="research-visual bubble-visual">
+          <div class="card-image">
+            <img src="website pics/mae3tutoring.JPEG" alt="MAE 3 students before the final Sun God robot contest">
+          </div>
+
+          <div class="bubble-layer" aria-label="MAE 3 skills">
+            <span class="bubble blue">CAD Modeling</span>
+            <span class="bubble light">Tutoring</span>
+            <span class="bubble blue-2">Documentation</span>
+          </div>
         </div>
-        <div class="media-meta" aria-label="Related skills">
-          <span>CAD Modeling</span><span>Tutoring</span><span>Documentation</span>
-        </div>
+
         <div class="exp-date">[Month Year] – Present · La Jolla, CA</div>
-        <div class="exp-title">MAE 3</div>
+        <h2 class="exp-title">MAE 3</h2>
         <div class="exp-role">Tutor / Instructional Assistant</div>
-        <p class="exp-body">Redesigned instructional CAD materials to improve student understanding, model safety, and overall design quality.</p>
+
+        <p class="exp-body">
+          My students and me before the final Sun God robot contest, where they tested the robots they designed and built throughout the course.
+        </p>
+
         <ul class="exp-bullets">
-          <li>Developed smoothed pendulum CAD samples by applying fillets and reducing sharp-edge features.</li>
-          <li>Created labeled examples and video tutorials to guide students through the modeling process.</li>
-          <li>Documented common design mistakes and practical strategies for preventing them.</li>
+          <li>Continuously developing course materials and new Fusion 360 tutorials.</li>
+          <li>Maintaining 3D printers and troubleshooting machine shop tools as a Design Studio Assistant.</li>
         </ul>
-      </div>
+      </article>
     </div>
   </section>
 
@@ -652,56 +1198,82 @@
     <div class="section-label reveal">
       <span class="eyebrow">Projects</span>
     </div>
+
     <div class="projects-grid stagger">
-      <div class="proj-card">
-        <div class="proj-img split-images">
-          <img src="website pics/armorMount.png" alt="Robot build armor mount">
-          <img src="website pics/infantryBig.png" alt="Triton Robotics robot assembly">
+      <article class="proj-card">
+        <div class="project-visual bubble-visual">
+          <div class="proj-img split-images">
+            <img src="website pics/armorMount.png" alt="Robot build armor mount">
+            <img src="website pics/slipringCAD.png" alt="Slip ring mount CAD model">
+          </div>
+
+          <div class="bubble-layer" aria-label="Suspension project skills">
+            <span class="bubble blue top-left">SolidWorks CAD</span>
+            <span class="bubble light top-right">Onshape CAD</span>
+            <span class="bubble blue-2 bottom-left">3D Printing</span>
+            <span class="bubble sky bottom-right">Fabrication</span>
+          </div>
         </div>
+
         <div class="proj-body-wrap">
           <span class="proj-num">01</span>
-          <div class="proj-title">Robot Combat Arena</div>
-          <div class="proj-sub">Triton Robotics · 2024–25</div>
-          <p class="proj-desc">Helped organize UCSD's first robot combat competition. Designed and fabricated the arena using laser-cut components and T-slot framing.</p>
-          <div class="proj-tags">
-            <span class="tag">Laser Cutting</span>
-            <span class="tag">T-Slot Assembly</span>
-            <span class="tag">Event Design</span>
+          <h2 class="proj-title">Implementing Suspension to Infantry</h2>
+          <div class="proj-sub">Triton Robotics · 2024–2025</div>
+
+          <p class="proj-desc">
+            Modified the chassis to accommodate a new suspension system, including redesigned armor and slip ring mounts.
+          </p>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <div class="project-visual bubble-visual">
+          <div class="proj-img split-images">
+            <img src="website pics/suspensionInf.png" alt="Infantry robot suspension system">
+            <img src="website pics/infantryBig.png" alt="Completed Infantry robot">
+          </div>
+
+          <div class="bubble-layer" aria-label="Robot completion skills">
+            <span class="bubble blue top-left">Assembly</span>
+            <span class="bubble light top-right">RoboMaster</span>
+            <span class="bubble blue-2 bottom-center">Testing</span>
           </div>
         </div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-img">
-          <img src="website pics/aynakFlex.png" alt="Flexible PCB for wearable design">
-        </div>
+
         <div class="proj-body-wrap">
           <span class="proj-num">02</span>
-          <div class="proj-title">Flexible PCB Design</div>
-          <div class="proj-sub">Aynak Inc. · 2026</div>
-          <p class="proj-desc">Designed miniature flexible PCB layouts for integration within a compact wearable eyewear assembly, balancing size, fit, and manufacturability.</p>
-          <div class="proj-tags">
-            <span class="tag">PCB Layout</span>
-            <span class="tag">Wearables</span>
-            <span class="tag">Fusion 360</span>
+          <h2 class="proj-title">Infantry Is Contest Ready!</h2>
+          <div class="proj-sub">Triton Robotics · 2024–2025</div>
+
+          <p class="proj-desc">
+            The completed Infantry robot prepared for UCSD's 2024 RoboMaster competition.
+          </p>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <div class="project-visual bubble-visual">
+          <div class="proj-img">
+            <img src="website pics/torture device.png" alt="PCB board testing restraint device">
+          </div>
+
+          <div class="bubble-layer" aria-label="Test fixture skills">
+            <span class="bubble blue top-left">Fusion 360</span>
+            <span class="bubble light top-right">CAD</span>
+            <span class="bubble blue-2 bottom-center">3D Printing</span>
           </div>
         </div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-img">
-          <img src="website pics/mae3tutoring.JPEG" alt="CAD tutorial redesign work">
-        </div>
+
         <div class="proj-body-wrap">
           <span class="proj-num">03</span>
-          <div class="proj-title">CAD Tutorial Redesign</div>
-          <div class="proj-sub">MAE 3 · UCSD</div>
-          <p class="proj-desc">Redesigned instructional CAD materials for the intro ME course, improving safety and design quality through smoothed models, labeled examples, and video walkthroughs.</p>
-          <div class="proj-tags">
-            <span class="tag">CAD</span>
-            <span class="tag">Fusion 360</span>
-            <span class="tag">Education</span>
-          </div>
+          <h2 class="proj-title">PCB Board Torture Device</h2>
+          <div class="proj-sub">Aynak Inc. · Internship</div>
+
+          <p class="proj-desc">
+            Designed and fabricated a restraint device to securely hold hardware during product testing.
+          </p>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 
@@ -710,48 +1282,47 @@
     <div class="section-label reveal">
       <span class="eyebrow">Get To Know Me</span>
     </div>
+
     <div class="about-layout">
       <div class="about-left reveal">
-        <h2>Hands-on,<br><em>always.</em></h2>
+        <h2>
+          Hands-on,<br>
+          <em>always.</em>
+        </h2>
+
         <p>
           I'm especially interested in opportunities involving product design, prototyping, manufacturing, robotics, and wearable technology — work that lives at the intersection of mechanical precision and human experience.
         </p>
+
         <p>
           Outside of engineering I stay active — volleyball, hiking, weightlifting, and yoga (the yoga is injury management, but it still counts).
         </p>
 
-        <div class="competencies-grid">
-          <div class="competency-card">
-            <div class="competency-title">Tools</div>
-            <div class="competency-list">
-              <span class="skill-chip">Fusion 360</span>
-              <span class="skill-chip">AutoCAD</span>
-              <span class="skill-chip">PCB Layout</span>
-              <span class="skill-chip">Laser Cutting</span>
-            </div>
-          </div>
-          <div class="competency-card">
-            <div class="competency-title">Skills</div>
-            <div class="competency-list">
-              <span class="skill-chip">CAD Modeling</span>
-              <span class="skill-chip">Prototyping</span>
-              <span class="skill-chip">Product Design</span>
-              <span class="skill-chip">T-Slot Assembly</span>
-              <span class="skill-chip">Wearable Technology</span>
-            </div>
-          </div>
-        </div>
-
         <div class="about-cta">
-        <a class="btn btn-beige" href="website pics/Adriane Lau RESUME.pdf" target="_blank">Download Resume ↗</a>
-        <a class="btn btn-outline-light" href="https://www.linkedin.com/in/adrianelau/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn btn-beige" href="website pics/Adriane Lau RESUME.pdf" target="_blank" rel="noopener">Download Resume ↗</a>
+          <a class="btn btn-outline-light" href="https://www.linkedin.com/in/adrianelau/" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
       </div>
 
-      <div class="about-right reveal">
+      <div class="about-right about-visual bubble-visual reveal">
         <div class="about-photo">
-        <img src="website pics/self.JPEG" alt="Adriane Lau">
+          <img src="website pics/self.JPEG" alt="Adriane Lau">
         </div>
+
+        <div class="bubble-layer" aria-label="Tools and skills">
+          <!-- Light bubbles are tools -->
+          <span class="bubble light tool-1">Fusion 360</span>
+          <span class="bubble light tool-2">AutoCAD</span>
+          <span class="bubble light tool-3">PCB Layout</span>
+          <span class="bubble light tool-4">Laser Cutting</span>
+
+          <!-- Blue bubbles are skills -->
+          <span class="bubble blue skill-1">CAD Modeling</span>
+          <span class="bubble blue-2 skill-2">Prototyping</span>
+          <span class="bubble blue skill-3">Product Design</span>
+          <span class="bubble blue-2 skill-4">Wearable Tech</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -763,28 +1334,23 @@
 
   <script>
     const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
 
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
 
-    if (window.matchMedia('(pointer: fine)').matches) {
-      const dot = document.getElementById('dot');
-      const ring = document.getElementById('ring');
-      document.addEventListener('mousemove', e => {
-        dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
-        ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
-      });
-      document.querySelectorAll('a, button, .exp-card, .proj-card, .skill-chip').forEach(el => {
-        el.addEventListener('mouseenter', () => { dot.style.width = dot.style.height = '12px'; ring.style.width = ring.style.height = '50px'; ring.style.opacity = '0.35'; });
-        el.addEventListener('mouseleave', () => { dot.style.width = dot.style.height = '8px'; ring.style.width = ring.style.height = '34px'; ring.style.opacity = '0.45'; });
-      });
-    } else {
-      document.getElementById('dot').style.display = 'none';
-      document.getElementById('ring').style.display = 'none';
-    }
+    document.querySelectorAll('.reveal, .stagger').forEach((element) => {
+      observer.observe(element);
+    });
   </script>
 </body>
 </html>
