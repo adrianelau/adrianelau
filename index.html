@@ -3,208 +3,688 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adriane Lau | UCSD Mechanical Engineering </title>
-  <meta name="description" content="Welcome to my experience, projects, and discovery!">
-  <link rel="stylesheet" href="style.css">
+  <title>Adriane Lau — Mechanical Engineering</title>
+  <meta name="description" content="UCSD Mechanical Engineering student — product design, prototyping, robotics, wearables.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --oxford:    #002147;
+      --oxford-2:  #082d5e;
+      --ocean:     #1a4f8a;
+      --ocean-2:   #2565a8;
+      --ocean-3:   #4a87c8;
+      --sky:       #8ab8e0;
+      --sky-2:     #c4ddf2;
+      --sky-3:     #e8f2fb;
+
+      --beige:     #f5f1e8;
+      --beige-2:   #ede9de;
+      --beige-3:   #e4dfd3;
+      --beige-4:   #d8d2c4;
+      --white:     #fdfbf7;
+
+      --ink:       #1c1a14;
+      --ink-2:     #4a4535;
+      --ink-3:     #8a8270;
+
+      --line:      rgba(0,33,71,0.1);
+      --line-warm: rgba(26,26,20,0.09);
+
+      --round:     'Varela Round', system-ui, sans-serif;
+      --body:      'Nunito', system-ui, sans-serif;
+      --ease:      cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      background: var(--beige);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── CURSOR ── 
+    .cursor-dot {
+      position: fixed; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--ocean-2); pointer-events: none;
+      transform: translate(-50%,-50%); z-index: 9999;
+      transition: width .25s, height .25s, opacity .3s;
+    }
+    .cursor-ring {
+      position: fixed; width: 34px; height: 34px; border-radius: 50%;
+      border: 1.5px solid var(--ocean-3); pointer-events: none;
+      transform: translate(-50%,-50%); z-index: 9998; opacity: 0.45;
+      transition: width .2s var(--ease), height .2s var(--ease), opacity .3s;
+    }*/
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(245,241,232,0.93);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .nav.scrolled { border-color: var(--line-warm); }
+    .nav-logo {
+      font-family: var(--round); font-size: 1.15rem;
+      color: var(--oxford); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--body); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ink-2); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ocean); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 10rem; gap: 5rem;
+      position: relative; overflow: hidden;
+      background: var(--beige);
+    }
+    /* warm beige accent panel right side */
+    .hero-panel {
+      position: absolute; top: 0; right: 0;
+      width: 46%; height: 100%;
+      background: var(--beige-2);
+      clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+      pointer-events: none; z-index: 0;
+    }
+    /* oxford blue accent arc */
+    .hero-arc {
+      position: absolute; top: 8%; right: 8%;
+      width: 26vw; height: 26vw; border-radius: 50%;
+      border: 1.5px solid rgba(0,33,71,0.1);
+      pointer-events: none; z-index: 0;
+    }
+    .hero-arc-2 {
+      position: absolute; top: 16%; right: 14%;
+      width: 16vw; height: 16vw; border-radius: 50%;
+      border: 1px solid rgba(0,33,71,0.07);
+      pointer-events: none; z-index: 0;
+    }
+
+    .hero-text { position: relative; z-index: 1; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: var(--body); font-size: 0.73rem; font-weight: 600;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--ocean); margin-bottom: 1.25rem;
+    }
+    .eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--ocean); border-radius: 2px; }
+
+    .hero h1 {
+      font-family: var(--round); font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 1.08; color: var(--oxford);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: normal; color: var(--ocean-2); }
+
+    .hero-desc {
+      font-size: 1rem; color: var(--ink-2); line-height: 1.85;
+      max-width: 44ch; margin-bottom: 2.5rem; font-weight: 300;
+    }
+    .hero-cta { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.6rem; font-family: var(--body); font-size: 0.8rem;
+      font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      border-radius: 50px; text-decoration: none;
+      transition: all 0.28s var(--ease); cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--oxford); color: var(--sky-2); }
+    .btn-primary:hover { background: var(--oxford-2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,33,71,0.22); }
+    .btn-ocean { background: var(--ocean); color: #fff; }
+    .btn-ocean:hover { background: var(--ocean-2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,79,138,0.28); }
+    .btn-outline { background: transparent; color: var(--oxford); border: 1.5px solid var(--oxford); }
+    .btn-outline:hover { background: var(--oxford); color: var(--sky-2); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; color: var(--ink-2); border: 1.5px solid var(--line-warm); }
+    .btn-ghost:hover { border-color: var(--ocean); color: var(--ocean); }
+    .btn-beige { background: var(--beige-2); color: var(--oxford); border: 1.5px solid var(--beige-4); }
+    .btn-beige:hover { background: var(--beige-3); }
+    .btn-outline-light { background: transparent; color: var(--sky-2); border: 1.5px solid rgba(196,221,242,0.4); }
+    .btn-outline-light:hover { background: rgba(196,221,242,0.1); }
+
+    /* hero image */
+    .hero-image-wrap {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-frame {
+      width: min(390px, 90%); aspect-ratio: 4/5;
+      background: var(--beige-3); border-radius: 18px;
+      border: 1.5px solid var(--beige-4); position: relative; overflow: hidden;
+    }
+    .hero-frame img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; }
+    .hero-frame-accent {
+      position: absolute; bottom: -1.25rem; right: -1.25rem;
+      width: 55%; height: 55%;
+      border: 2px solid var(--sky-2); border-radius: 14px;
+      pointer-events: none; z-index: -1;
+    }
+    .img-hint {
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.6rem;
+      background: var(--beige-3); color: var(--ink-3); font-family: var(--body);
+      font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 16px;
+    }
+    .img-hint svg { opacity: 0.45; }
+
+    /* stats */
+    .hero-stats {
+      position: absolute; bottom: 3.5rem; left: 4rem; right: 4rem;
+      display: flex; gap: 3rem; z-index: 1;
+      border-top: 1px solid var(--line-warm); padding-top: 2rem;
+    }
+    .stat-num { font-family: var(--round); font-size: 2.5rem; color: var(--oxford); line-height: 1; }
+    .stat-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-top: 0.25rem; }
+
+    /* ── SECTIONS ── */
+    section { padding: 7rem 4rem; }
+    .section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 4rem; }
+    .section-label .eyebrow { margin-bottom: 0; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line-warm); }
+
+    /* ── EXPERIENCE ── */
+    .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .exp-card {
+      background: var(--white); padding: 2.5rem 3rem;
+      position: relative; overflow: hidden;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .exp-card:hover { background: var(--beige); box-shadow: inset 0 0 0 1.5px var(--beige-4); }
+    .exp-card.featured {
+      grid-column: 1 / -1; display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr; gap: 3rem; align-items: start;
+    }
+    .exp-image { aspect-ratio: 4/5; background: var(--beige-2); overflow: hidden; border-radius: 12px; }
+    .exp-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
+    .exp-image-hint {
+      width: 100%; height: 100%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; color: var(--ink-3);
+      font-family: var(--body); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; gap: 0.5rem;
+    }
+    .exp-image-hint svg { opacity: 0.4; }
+    .card-image { width: 100%; aspect-ratio: 16/7; background: var(--beige-2); overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem; }
+    .card-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 8px; }
+    .card-image-hint {
+      width: 100%; height: 100%; min-height: 80px; display: flex; align-items: center;
+      justify-content: center; flex-direction: column; gap: 0.4rem;
+      color: var(--ink-3); font-family: var(--body); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .card-image-hint svg { opacity: 0.35; }
+    .exp-date { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.75rem; }
+    .exp-title { font-family: var(--round); font-size: 1.7rem; line-height: 1.15; color: var(--oxford); margin-bottom: 0.35rem; }
+    .exp-role { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ocean); margin-bottom: 1rem; }
+    .exp-body { font-size: 0.92rem; color: var(--ink-2); line-height: 1.75; font-weight: 300; }
+    .exp-bullets { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.55rem; }
+    .exp-bullets li { font-size: 0.88rem; color: var(--ink-2); padding-left: 1.3rem; position: relative; font-weight: 300; }
+    .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--ocean-3); font-size: 0.8rem; line-height: 1.8; }
+
+    /* ── OXFORD DARK SECTION ── */
+    .dark-section { background: var(--oxford); color: #fff; }
+    .dark-section .section-label::after { background: rgba(196,221,242,0.15); }
+    .dark-section .eyebrow { color: var(--sky); }
+    .dark-section .eyebrow::before { background: var(--sky); }
+    .dark-section .exp-card { background: rgba(255,255,255,0.05); }
+    .dark-section .exp-card:hover { background: rgba(196,221,242,0.08); box-shadow: inset 0 0 0 1px rgba(196,221,242,0.18); }
+    .dark-section .exp-title { color: #fff; }
+    .dark-section .exp-body { color: var(--sky-2); }
+    .dark-section .exp-bullets li { color: var(--sky-2); }
+    .dark-section .exp-date { color: rgba(196,221,242,0.4); }
+    .dark-section .exp-role { color: var(--sky); }
+    .dark-section .card-image { background: rgba(255,255,255,0.07); }
+
+    /* ── PROJECTS ── */
+    .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .proj-card {
+      background: var(--white); border: 1.5px solid var(--beige-3);
+      border-radius: 16px; overflow: hidden;
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+    .proj-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px -10px rgba(0,33,71,0.12); }
+    .proj-img { width: 100%; aspect-ratio: 16/9; background: var(--beige-2); overflow: hidden; }
+    .proj-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .proj-body-wrap { padding: 1.6rem; }
+    .proj-num { font-family: var(--round); font-size: 3rem; line-height: 1; color: var(--beige-4); display: block; margin-bottom: 0.4rem; }
+    .proj-title { font-family: var(--round); font-size: 1.2rem; color: var(--oxford); margin-bottom: 0.3rem; }
+    .proj-sub { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ocean); margin-bottom: 0.75rem; }
+    .proj-desc { font-size: 0.88rem; color: var(--ink-2); line-height: 1.7; font-weight: 300; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.1rem; }
+    .tag {
+      font-family: var(--body); font-size: 0.67rem; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 0.25rem 0.75rem; border: 1.5px solid var(--sky-2);
+      color: var(--ocean-2); border-radius: 50px; background: var(--sky-3);
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--oxford); color: #fff; }
+    #about .section-label::after { background: rgba(196,221,242,0.15); }
+    #about .eyebrow { color: var(--sky); }
+    #about .eyebrow::before { background: var(--sky); }
+
+    .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+
+    .about-left h2 {
+      font-family: var(--round); font-size: clamp(2.2rem, 3.5vw, 4rem);
+      line-height: 1.1; color: #fff; margin-bottom: 1.5rem;
+    }
+    .about-left h2 em { color: var(--sky); font-style: normal; }
+    .about-left p { font-size: 1rem; color: var(--sky-2); line-height: 1.85; margin-bottom: 1rem; font-weight: 300; }
+    .about-cta { display: flex; gap: 0.85rem; flex-wrap: wrap; margin-top: 2rem; }
+
+    /* skills cloud */
+    .skills-sidebar { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(196,221,242,0.15); }
+    .skills-sidebar-title { font-family: var(--body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sky); margin-bottom: 1.25rem; }
+    .skills-cloud { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .skill-chip {
+      font-family: var(--body); font-size: 0.75rem; font-weight: 600;
+      padding: 0.35rem 1rem; border-radius: 50px; letter-spacing: 0.04em;
+      cursor: default;
+      animation: bob 5s ease-in-out infinite;
+      transition: transform 0.25s var(--ease);
+    }
+    .skill-chip:hover { transform: scale(1.1) translateY(-2px); }
+    .skill-chip.c1 { background: rgba(74,135,200,0.22); color: var(--sky); border: 1px solid rgba(138,184,224,0.3); animation-delay: 0s; }
+    .skill-chip.c2 { background: rgba(196,221,242,0.12); color: var(--sky-2); border: 1px solid rgba(196,221,242,0.2); animation-delay: 0.5s; }
+    .skill-chip.c3 { background: rgba(26,79,138,0.35); color: var(--sky); border: 1px solid rgba(74,135,200,0.3); animation-delay: 1s; }
+    .skill-chip.c4 { background: rgba(74,135,200,0.15); color: var(--sky-2); border: 1px solid rgba(196,221,242,0.18); animation-delay: 1.5s; }
+    .skill-chip.c5 { background: rgba(196,221,242,0.1); color: var(--sky); border: 1px solid rgba(138,184,224,0.2); animation-delay: 0.8s; }
+    .skill-chip.c6 { background: rgba(26,79,138,0.28); color: var(--sky-2); border: 1px solid rgba(74,135,200,0.25); animation-delay: 0.3s; }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+    /* about photo + floating pills */
+    .about-right { position: relative; }
+    .about-photo {
+      width: 100%; aspect-ratio: 3/4;
+      background: rgba(255,255,255,0.05);
+      overflow: hidden; border-radius: 18px;
+      border: 1.5px solid rgba(196,221,242,0.12);
+      position: relative;
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; }
+    .about-photo-hint {
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.5rem;
+      color: rgba(196,221,242,0.45); font-family: var(--body);
+      font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .about-photo-hint svg { opacity: 0.4; }
+
+    .skills-float { position: absolute; inset: 0; pointer-events: none; }
+    .skill-pill {
+      position: absolute; font-family: var(--body); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.32rem 0.9rem; border-radius: 50px;
+      pointer-events: auto; cursor: default;
+      transition: transform 0.3s var(--ease);
+      animation: float-pill 6s ease-in-out infinite;
+    }
+    .skill-pill:hover { transform: scale(1.1) !important; }
+    .skill-pill.s1 { background: var(--ocean); color: #fff; top: 6%; left: -26%; animation-delay: 0s; }
+    .skill-pill.s2 { background: var(--sky-2); color: var(--oxford); top: 22%; right: -22%; animation-delay: 1s; }
+    .skill-pill.s3 { background: rgba(37,101,168,0.9); color: #fff; top: 43%; left: -30%; animation-delay: 2s; }
+    .skill-pill.s4 { background: var(--oxford-2); color: var(--sky); border: 1px solid var(--ocean-3); top: 61%; right: -24%; animation-delay: 0.6s; }
+    .skill-pill.s5 { background: var(--sky); color: var(--oxford); bottom: 26%; left: -20%; animation-delay: 1.6s; }
+    .skill-pill.s6 { background: var(--ocean-2); color: #fff; bottom: 10%; right: -20%; animation-delay: 0.4s; }
+    @keyframes float-pill { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-7px); } }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #001530; padding: 2.5rem 4rem;
+      border-top: 1px solid rgba(196,221,242,0.08);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .foot-name { font-family: var(--round); font-size: 1.3rem; color: var(--sky-2); }
+    .foot-copy { font-size: 0.75rem; color: rgba(196,221,242,0.35); letter-spacing: 0.05em; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+    .stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:0.05s; }
+    .stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.15s; }
+    .stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.25s; }
+    .stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.35s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .hero { grid-template-columns: 1fr; padding: 7rem 2rem 12rem; gap: 3rem; }
+      .hero-image-wrap { display: none; }
+      .hero-panel, .hero-arc, .hero-arc-2 { display: none; }
+      .hero-stats { left: 2rem; right: 2rem; flex-wrap: wrap; gap: 1.5rem; }
+      section { padding: 5rem 2rem; }
+      .experience-grid { grid-template-columns: 1fr; }
+      .exp-card.featured { grid-template-columns: 1fr; gap: 1.5rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .about-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .skill-pill { display: none; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
 </head>
-
 <body>
-  <header class="site-header">
-    <nav class="navbar container" aria-label="Main navigation">
-      <a class="logo" href="#home">Adriane Lau</a>
-      <div class="nav-links">
-        <a href="#internship">Aynak Internship</a>
-        <a href="#lab">Luan Lab</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About Me</a>
-      </div>
-    </nav>
-  </header>
 
-  <main>
-    <!-- HOME / INTRODUCTION -->
-    <section class="hero container" id="home">
-      <div class="hero-text">
-        <p class="eyebrow">An Introduction...</p>
-        <h1>Hi, I’m <span>Adriane!</span>.</h1>
-        <p class="intro">
-          I'm a Mechanical Engineering student at UC San Diego Jacobs 
-          school of Engineering, graduating in April 2027. From helping 
-          Triton Robotics host its first-ever RoboMaster competition in 24-25'
-          to designing tiny PCB flexes at Aynak Inc., I've found love in 
-          turning my design ideas into real-world solutions (especially building them). 
-          
-        </p>
-        <div class="hero-buttons">
-          <a class="button primary" href="#projects">View My Work</a>
-          <!-- Upload your resume PDF and change the file name below if needed. -->
-          <a class="button secondary" href="resume.pdf" target="_blank">View Resume</a>
-        </div>
-      </div>
+  <div class="cursor-dot" id="dot"></div>
+  <div class="cursor-ring" id="ring"></div>
 
-      <div class="hero-image">
-        <!-- Replace the image src below with your own image, for example: images/headshot.jpg -->
-        <img src="images/profile-placeholder.svg" alt="Portrait or featured engineering project image">
-      </div>
-    </section>
+  <!-- NAV -->
+  <nav class="nav" id="main-nav">
+    <a class="nav-logo" href="#home">Adriane Lau</a>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
 
-  <!-- PROFESSIONAL EXPERIENCE SECTION -->
-<section class="section" id="internship">
-  <div class="container">
-    <div class="section-heading">
-      <p class="eyebrow">Professional Experience</p>
-      <h2>Internship</h2>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-panel"></div>
+    <div class="hero-arc"></div>
+    <div class="hero-arc-2"></div>
+    <div class="hero-text">
+      <span class="eyebrow">Mechanical Engineering · UCSD '27</span>
+      <h1>Hi, I'm<br><em>Adriane.</em></h1>
+      <p class="hero-desc">
+        I'm a Mechanical Engineering student at UC San Diego Jacobs school of Engineering, graduating in April 2027. From helping Triton Robotics host its first-ever RoboMaster competition in 24-25' to designing tiny PCB flexes at Aynak Inc., I've found love in turning my design ideas into real-world solutions (especially building them).
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#experience">View My Work ↓</a>
+        <!-- ✏️ Replace href with your resume PDF path -->
+        <a class="btn btn-ocean" href="resume.pdf" target="_blank">Resume ↗</a>
+        <!-- ✏️ https://www.linkedin.com/in/adrianelau/ -->
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/adrianelau/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
     </div>
-
-    <div class="feature-card">
-      <div class="feature-image">
-        <!-- Replace with an approved internship or product development image. -->
-        <img src="images/internship-placeholder.svg" alt="Aynak wearable vision system development work">
+    <div class="hero-image-wrap">
+      <div class="hero-frame">
+        <!-- ✏️ Replace src with your photo e.g. images/adriane.jpg -->
+        <img src="images/profile-placeholder.svg" alt="Adriane Lau">
+        <div class="img-hint">
+          <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          Replace with your photo
+        </div>
+        <div class="hero-frame-accent"></div>
       </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Years Left</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Active Roles</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1st</div>
+        <div class="stat-label">Competition Hosted</div>
+      </div>
+    </div>
+  </section>
 
-      <div class="feature-content">
-        <h3>Aynak Inc. | Mechanical Engineering Intern</h3>
-        <p class="meta">January 2026 – Present • La Jolla, CA</p>
-        <p>
-          Contributed to the development of Aynak’s wearable vision system by
-          supporting mechanical design for a compact eyewear form factor and
-          developing miniature flexible PCB concepts for product integration.
-        </p>
-        <ul>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label reveal">
+      <span class="eyebrow">Professional Experience</span>
+    </div>
+    <div class="experience-grid stagger">
+      <div class="exp-card featured">
+        <div class="exp-image">
+          <!-- ✏️ Replace src with internship photo e.g. images/aynak.jpg -->
+          <img src="" alt="Aynak work" onerror="this.style.display='none'">
+          <div class="exp-image-hint">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            Add a photo
+          </div>
+        </div>
+        <div>
+          <div class="exp-date">Jan 2026 – Present · La Jolla, CA</div>
+          <div class="exp-title">Aynak Inc.</div>
+          <div class="exp-role">Mechanical Engineering Intern</div>
+          <p class="exp-body">Contributing to the development of Aynak's wearable vision system — supporting mechanical design for a compact eyewear form factor and developing miniature flexible PCB concepts.</p>
+        </div>
+        <ul class="exp-bullets">
           <li>Supported mechanical design decisions for compact wearable hardware.</li>
           <li>Designed miniature flexible PCB layouts to support integration within the eyewear assembly.</li>
-          <li>Collaborated on product development considerations involving size, fit, and manufacturability.</li>
+          <li>Collaborated on product development involving size, fit, and manufacturability.</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- RESEARCH & INSTRUCTIONAL WORK SECTION -->
-<section class="section alternate" id="lab">
-  <div class="container">
-    <div class="section-heading">
-      <p class="eyebrow">Research &amp; Instructional Work</p>
-      <h2>Academic Experience</h2>
+  <!-- RESEARCH -->
+  <section id="research" class="dark-section">
+    <div class="section-label reveal">
+      <span class="eyebrow">Research &amp; Instructional Work</span>
     </div>
-
-    <!-- LUAN LAB -->
-    <div class="feature-card reverse">
-      <div class="feature-image">
-        <!-- Replace with an approved lab, CAD, prototype, or research image. -->
-        <img src="images/lab-placeholder.svg" alt="Luan Lab research or engineering design work">
-      </div>
-
-      <div class="feature-content">
-        <h3>Luan Lab | Undergraduate Researcher</h3>
-        <p class="meta">[Month Year] – [Month Year or Present] • La Jolla, CA</p>
-        <p>
-          Supported engineering research and design work in the Luan Lab at
-          UC San Diego through hands-on development, documentation, and
-          technical problem-solving.
-        </p>
-        <ul>
-          <li>Add a specific research responsibility, prototype, experiment, or design contribution.</li>
+    <div class="experience-grid stagger">
+      <div class="exp-card">
+        <div class="card-image">
+          <!-- ✏️ Replace src with lab photo e.g. images/luan-lab.jpg -->
+          <img src="" alt="Luan Lab" onerror="this.style.display='none'">
+          <div class="card-image-hint">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            Add a photo
+          </div>
+        </div>
+        <div class="exp-date">[Month Year] – Present · La Jolla, CA</div>
+        <div class="exp-title">Luan Lab</div>
+        <div class="exp-role">Undergraduate Researcher</div>
+        <p class="exp-body">Supported engineering research and design work through hands-on development, documentation, and technical problem-solving.</p>
+        <ul class="exp-bullets">
+          <li>Add a specific research responsibility, prototype, or design contribution.</li>
           <li>Add the technical tools or manufacturing methods you used.</li>
           <li>Add a measurable outcome or project goal when available.</li>
         </ul>
       </div>
-    </div>
-
-    <!-- MAE 3 TUTORING -->
-    <div class="feature-card">
-      <div class="feature-image">
-        <!-- Replace with an approved tutorial screenshot, CAD model, or teaching image. -->
-        <img src="images/pendulum-placeholder.svg" alt="MAE 3 CAD tutorial and pendulum design materials">
-      </div>
-
-      <div class="feature-content">
-        <h3>MAE 3 | Tutor / Instructional Assistant</h3>
-        <p class="meta">[Month Year] – [Month Year or Present] • La Jolla, CA</p>
-        <p>
-          Redesigned instructional CAD materials to improve student
-          understanding, model safety, and overall design quality.
-        </p>
-        <ul>
+      <div class="exp-card">
+        <div class="card-image">
+          <!-- ✏️ Replace src with CAD/teaching photo e.g. images/mae3.jpg -->
+          <img src="" alt="MAE 3" onerror="this.style.display='none'">
+          <div class="card-image-hint">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            Add a photo
+          </div>
+        </div>
+        <div class="exp-date">[Month Year] – Present · La Jolla, CA</div>
+        <div class="exp-title">MAE 3</div>
+        <div class="exp-role">Tutor / Instructional Assistant</div>
+        <p class="exp-body">Redesigned instructional CAD materials to improve student understanding, model safety, and overall design quality.</p>
+        <ul class="exp-bullets">
           <li>Developed smoothed pendulum CAD samples by applying fillets and reducing sharp-edge features.</li>
           <li>Created labeled examples and video tutorials to guide students through the modeling process.</li>
           <li>Documented common design mistakes and practical strategies for preventing them.</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROJECTS SECTION -->
-<section class="section" id="projects">
-  <div class="container">
-    <div class="section-heading">
-      <p class="eyebrow">Projects</p>
-      <h2>Triton Robotics</h2>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label reveal">
+      <span class="eyebrow">Projects</span>
     </div>
-
-    <div class="feature-card">
-      <div class="feature-image">
-        <!-- Replace with a photo of the competition, arena, robot, or team. -->
-        <img src="images/arena-placeholder.svg" alt="Triton Robotics robot combat competition arena">
-      </div>
-
-      <div class="feature-content">
-        <h3>Triton Robotics | Robot Combat Competition</h3>
-        <p class="meta">2024 – 2025 • UC San Diego, La Jolla, CA</p>
-        <p>
-          Helped Triton Robotics organize and host its first-ever robot combat
-          competition while contributing to the design and fabrication of the
-          competition arena.
-        </p>
-        <ul>
-          <li>Supported the planning and execution of the organization’s inaugural competition.</li>
-          <li>Designed and fabricated a robot combat arena using laser-cut components and T-slot framing.</li>
-          <li>Worked within material, safety, and event constraints to help deliver a functional competition environment.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-    <!-- ABOUT ME TAB SECTION -->
-    <section class="section alternate" id="about">
-      <div class="container about-grid">
-        <div>
-          <p class="eyebrow">Get To Know Me</p>
-          <h2>About Me</h2>
-          <p>
-            Outside of school and work, I am super active! I love to play volleyball, hike, 
-            occassionally do yoga with my friend, weightlift, and run. I used to be on a 
-            recreational volleyball team, but now I'm getting fragile and have injuries
-            (hence the yoga).
-          </p>
-          <p>
-            I am especially interested in opportunities involving product design,
-            prototyping, manufacturing, robotics, and wearable technology.
-          </p>
-        </div>
-
-        <div class="skills-card">
-          <h3>Skills & Tools</h3>
-          <div class="skills">
-            <span>AutoCAD</span>
-            <span>Fusion 360</span>
-            <span>Laser Cutting</span>
-            <span>T-Slot Assembly</span>
-            <span>CAD Modeling</span>
-            <span>Prototyping</span>
+    <div class="projects-grid stagger">
+      <div class="proj-card">
+        <div class="proj-img">
+          <!-- ✏️ Replace src with arena photo -->
+          <img src="" alt="Robot Combat Arena" onerror="this.style.display='none'">
+          <div class="card-image-hint" style="height:100%">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            Add a photo
           </div>
-
-          <h3 class="contact-title">Contact</h3>
-          <p><a href="mailto:your-email@example.com">your-email@example.com</a></p>
-          <p><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn Profile</a></p>
+        </div>
+        <div class="proj-body-wrap">
+          <span class="proj-num">01</span>
+          <div class="proj-title">Robot Combat Arena</div>
+          <div class="proj-sub">Triton Robotics · 2024–25</div>
+          <p class="proj-desc">Helped organize UCSD's first robot combat competition. Designed and fabricated the arena using laser-cut components and T-slot framing.</p>
+          <div class="proj-tags">
+            <span class="tag">Laser Cutting</span>
+            <span class="tag">T-Slot Assembly</span>
+            <span class="tag">Event Design</span>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
+      <div class="proj-card">
+        <div class="proj-img">
+          <!-- ✏️ Replace src with PCB/wearable photo -->
+          <img src="" alt="Flexible PCB" onerror="this.style.display='none'">
+          <div class="card-image-hint" style="height:100%">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            Add a photo
+          </div>
+        </div>
+        <div class="proj-body-wrap">
+          <span class="proj-num">02</span>
+          <div class="proj-title">Flexible PCB Design</div>
+          <div class="proj-sub">Aynak Inc. · 2026</div>
+          <p class="proj-desc">Designed miniature flexible PCB layouts for integration within a compact wearable eyewear assembly, balancing size, fit, and manufacturability.</p>
+          <div class="proj-tags">
+            <span class="tag">PCB Layout</span>
+            <span class="tag">Wearables</span>
+            <span class="tag">Fusion 360</span>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img">
+          <!-- ✏️ Replace src with CAD screenshot -->
+          <img src="" alt="CAD Tutorial" onerror="this.style.display='none'">
+          <div class="card-image-hint" style="height:100%">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            Add a photo
+          </div>
+        </div>
+        <div class="proj-body-wrap">
+          <span class="proj-num">03</span>
+          <div class="proj-title">CAD Tutorial Redesign</div>
+          <div class="proj-sub">MAE 3 · UCSD</div>
+          <p class="proj-desc">Redesigned instructional CAD materials for the intro ME course, improving safety and design quality through smoothed models, labeled examples, and video walkthroughs.</p>
+          <div class="proj-tags">
+            <span class="tag">CAD</span>
+            <span class="tag">Fusion 360</span>
+            <span class="tag">Education</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <p>&copy; 2026 Your Name. Built with HTML and CSS.</p>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label reveal">
+      <span class="eyebrow">Get To Know Me</span>
+    </div>
+    <div class="about-layout">
+      <div class="about-left reveal">
+        <h2>Hands-on,<br><em>always.</em></h2>
+        <p>
+          I'm especially interested in opportunities involving product design, prototyping, manufacturing, robotics, and wearable technology — work that lives at the intersection of mechanical precision and human experience.
+        </p>
+        <p>
+          Outside of engineering I stay active — volleyball, hiking, weightlifting, and yoga (the yoga is injury management, but it still counts).
+        </p>
+
+        <div class="skills-sidebar">
+          <div class="skills-sidebar-title">Skills &amp; Tools</div>
+          <div class="skills-cloud">
+            <span class="skill-chip c1">AutoCAD</span>
+            <span class="skill-chip c2">Fusion 360</span>
+            <span class="skill-chip c3">Laser Cutting</span>
+            <span class="skill-chip c4">T-Slot Assembly</span>
+            <span class="skill-chip c5">CAD Modeling</span>
+            <span class="skill-chip c6">Prototyping</span>
+            <span class="skill-chip c1">Product Design</span>
+            <span class="skill-chip c3">Wearable Tech</span>
+            <span class="skill-chip c2">PCB Layout</span>
+          </div>
+        </div>
+
+        <div class="about-cta">
+          <!-- ✏️ Replace with your resume PDF path -->
+          <a class="btn btn-beige" href="resume.pdf" target="_blank">Download Resume ↗</a>
+          <!-- ✏️ Replace with your LinkedIn URL -->
+          <a class="btn btn-outline-light" href="https://linkedin.com/in/YOUR-USERNAME" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <!-- ✏️ Replace with your email -->
+          <a class="btn btn-outline-light" href="mailto:your-email@ucsd.edu">Email Me</a>
+        </div>
+      </div>
+
+      <div class="about-right reveal">
+        <div class="about-photo">
+          <!-- ✏️ Replace src with your about photo e.g. images/adriane-about.jpg -->
+          <img src="" alt="Adriane Lau" onerror="this.style.display='none'">
+          <div class="about-photo-hint">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            Add your photo here
+          </div>
+        </div>
+        <div class="skills-float">
+          <span class="skill-pill s1">AutoCAD</span>
+          <span class="skill-pill s2">Fusion 360</span>
+          <span class="skill-pill s3">Laser Cutting</span>
+          <span class="skill-pill s4">T-Slot</span>
+          <span class="skill-pill s5">Prototyping</span>
+          <span class="skill-pill s6">CAD</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="foot-name">Adriane Lau</span>
+    <span class="foot-copy">© 2026 · UCSD Mechanical Engineering</span>
   </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
+
+    if (window.matchMedia('(pointer: fine)').matches) {
+      const dot = document.getElementById('dot');
+      const ring = document.getElementById('ring');
+      document.addEventListener('mousemove', e => {
+        dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+        ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
+      });
+      document.querySelectorAll('a, button, .exp-card, .proj-card, .skill-pill, .skill-chip').forEach(el => {
+        el.addEventListener('mouseenter', () => { dot.style.width = dot.style.height = '12px'; ring.style.width = ring.style.height = '50px'; ring.style.opacity = '0.35'; });
+        el.addEventListener('mouseleave', () => { dot.style.width = dot.style.height = '8px'; ring.style.width = ring.style.height = '34px'; ring.style.opacity = '0.45'; });
+      });
+    } else {
+      document.getElementById('dot').style.display = 'none';
+      document.getElementById('ring').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
