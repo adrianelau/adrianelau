@@ -230,6 +230,28 @@
       color: var(--ink-3); font-family: var(--body); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
     }
     .card-image-hint svg { opacity: 0.35; }
+
+    .split-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.35rem;
+    }
+    .split-images img { border-radius: 0; }
+    .media-meta {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin: 0.8rem 0 1.4rem;
+    }
+    .media-meta span {
+      font-family: var(--body); font-size: 0.64rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.25rem 0.65rem; border-radius: 50px;
+      color: var(--ocean-2); background: var(--sky-3);
+      border: 1px solid var(--sky-2);
+    }
+    .dark-section .media-meta span {
+      color: var(--sky-2); background: rgba(196,221,242,0.08);
+      border-color: rgba(196,221,242,0.22);
+    }
     .exp-date { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.75rem; }
     .exp-title { font-family: var(--round); font-size: 1.7rem; line-height: 1.15; color: var(--oxford); margin-bottom: 0.35rem; }
     .exp-role { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ocean); margin-bottom: 1rem; }
@@ -291,25 +313,36 @@
     .about-left p { font-size: 1rem; color: var(--sky-2); line-height: 1.85; margin-bottom: 1rem; font-weight: 300; }
     .about-cta { display: flex; gap: 0.85rem; flex-wrap: wrap; margin-top: 2rem; }
 
-    /* skills cloud */
-    .skills-sidebar { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(196,221,242,0.15); }
-    .skills-sidebar-title { font-family: var(--body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sky); margin-bottom: 1.25rem; }
-    .skills-cloud { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-    .skill-chip {
-      font-family: var(--body); font-size: 0.75rem; font-weight: 600;
-      padding: 0.35rem 1rem; border-radius: 50px; letter-spacing: 0.04em;
-      cursor: default;
-      animation: bob 5s ease-in-out infinite;
-      transition: transform 0.25s var(--ease);
+    /* distinct tools and skills lists */
+    .competencies-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      margin-top: 2.5rem;
     }
-    .skill-chip:hover { transform: scale(1.1) translateY(-2px); }
-    .skill-chip.c1 { background: rgba(74,135,200,0.22); color: var(--sky); border: 1px solid rgba(138,184,224,0.3); animation-delay: 0s; }
-    .skill-chip.c2 { background: rgba(196,221,242,0.12); color: var(--sky-2); border: 1px solid rgba(196,221,242,0.2); animation-delay: 0.5s; }
-    .skill-chip.c3 { background: rgba(26,79,138,0.35); color: var(--sky); border: 1px solid rgba(74,135,200,0.3); animation-delay: 1s; }
-    .skill-chip.c4 { background: rgba(74,135,200,0.15); color: var(--sky-2); border: 1px solid rgba(196,221,242,0.18); animation-delay: 1.5s; }
-    .skill-chip.c5 { background: rgba(196,221,242,0.1); color: var(--sky); border: 1px solid rgba(138,184,224,0.2); animation-delay: 0.8s; }
-    .skill-chip.c6 { background: rgba(26,79,138,0.28); color: var(--sky-2); border: 1px solid rgba(74,135,200,0.25); animation-delay: 0.3s; }
-    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+    .competency-card {
+      padding: 1.25rem;
+      border: 1px solid rgba(196,221,242,0.18);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+    }
+    .competency-title {
+      font-family: var(--body); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--sky); margin-bottom: 1rem;
+    }
+    .competency-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-chip {
+      font-family: var(--body); font-size: 0.72rem; font-weight: 600;
+      padding: 0.32rem 0.75rem; border-radius: 50px;
+      letter-spacing: 0.03em; cursor: default;
+      background: rgba(196,221,242,0.1);
+      color: var(--sky-2);
+      border: 1px solid rgba(196,221,242,0.18);
+      transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+    }
+    .skill-chip:hover {
+      background: rgba(196,221,242,0.16);
+      transform: translateY(-2px);
+    }
 
     /* about photo + floating pills */
     .about-right { position: relative; }
@@ -329,23 +362,6 @@
     }
     .about-photo-hint svg { opacity: 0.4; }
 
-    .skills-float { position: absolute; inset: 0; pointer-events: none; }
-    .skill-pill {
-      position: absolute; font-family: var(--body); font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 0.32rem 0.9rem; border-radius: 50px;
-      pointer-events: auto; cursor: default;
-      transition: transform 0.3s var(--ease);
-      animation: float-pill 6s ease-in-out infinite;
-    }
-    .skill-pill:hover { transform: scale(1.1) !important; }
-    .skill-pill.s1 { background: var(--ocean); color: #fff; top: 6%; left: -26%; animation-delay: 0s; }
-    .skill-pill.s2 { background: var(--sky-2); color: var(--oxford); top: 22%; right: -22%; animation-delay: 1s; }
-    .skill-pill.s3 { background: rgba(37,101,168,0.9); color: #fff; top: 43%; left: -30%; animation-delay: 2s; }
-    .skill-pill.s4 { background: var(--oxford-2); color: var(--sky); border: 1px solid var(--ocean-3); top: 61%; right: -24%; animation-delay: 0.6s; }
-    .skill-pill.s5 { background: var(--sky); color: var(--oxford); bottom: 26%; left: -20%; animation-delay: 1.6s; }
-    .skill-pill.s6 { background: var(--ocean-2); color: #fff; bottom: 10%; right: -20%; animation-delay: 0.4s; }
-    @keyframes float-pill { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-7px); } }
 
     /* ── FOOTER ── */
     footer {
@@ -378,7 +394,7 @@
       .exp-card.featured { grid-template-columns: 1fr; gap: 1.5rem; }
       .projects-grid { grid-template-columns: 1fr; }
       .about-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .skill-pill { display: none; }
+      .competencies-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
@@ -412,20 +428,13 @@
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#experience">View My Work ↓</a>
-        <!-- ✏️ Replace href with your resume PDF path -->
-        <a class="btn btn-ocean" href="Adriane Lau RESUME.pdf" target="_blank">Resume ↗</a>
-        <!-- ✏️ https://www.linkedin.com/in/adrianelau/ -->
+        <a class="btn btn-ocean" href="website pics/Adriane Lau RESUME.pdf" target="_blank">Resume ↗</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/adrianelau/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
     </div>
     <div class="hero-image-wrap">
       <div class="hero-frame">
-        <!-- ✏️ Replace src with your photo e.g. images/adriane.jpg -->
         <img src="website pics/self.JPEG" alt="Adriane Lau">
-        <div class="img-hint">
-          <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          Replace with your photo
-        </div>
         <div class="hero-frame-accent"></div>
       </div>
     </div>
@@ -452,12 +461,13 @@
     </div>
     <div class="experience-grid stagger">
       <div class="exp-card featured">
-        <div class="exp-image">
-          <!-- ✏️ Replace src with internship photo e.g. images/aynak.jpg -->
-          <img src="website pics/aynakFlex.png" alt="Aynak work" onerror="this.style.display='none'">
-          <div class="exp-image-hint">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            Add a photo
+        <div>
+          <div class="exp-image split-images">
+            <img src="website pics/aynakFlex.png" alt="Flexible PCB design work for Aynak wearable hardware">
+            <img src="website pics/aynakLMount.png" alt="Aynak wearable mount design">
+          </div>
+          <div class="media-meta" aria-label="Related skills">
+            <span>Flex PCB</span><span>Wearables</span><span>Product Design</span>
           </div>
         </div>
         <div>
@@ -482,13 +492,12 @@
     </div>
     <div class="experience-grid stagger">
       <div class="exp-card">
-        <div class="card-image">
-          <!-- ✏️ Replace src with lab photo e.g. images/luan-lab.jpg -->
-          <img src="website pics/luanmold.png" alt="Luan Lab" onerror="this.style.display='none'">
-          <div class="card-image-hint">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            Add a photo
-          </div>
+        <div class="card-image split-images">
+          <img src="website pics/luanmold.png" alt="Luan Lab mold work">
+          <img src="website pics/luanSub.png" alt="Luan Lab subsystem work">
+        </div>
+        <div class="media-meta" aria-label="Related skills">
+          <span>Fabrication</span><span>Prototyping</span><span>Testing</span>
         </div>
         <div class="exp-date">[Month Year] – Present · La Jolla, CA</div>
         <div class="exp-title">Luan Lab</div>
@@ -502,12 +511,10 @@
       </div>
       <div class="exp-card">
         <div class="card-image">
-          <!-- ✏️ Replace src with CAD/teaching photo e.g. images/mae3.jpg -->
-          <img src="website pics/mae3tutoring.JPEG" alt="MAE 3" onerror="this.style.display='none'">
-          <div class="card-image-hint">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            Add a photo
-          </div>
+          <img src="website pics/mae3tutoring.JPEG" alt="MAE 3 CAD tutoring materials">
+        </div>
+        <div class="media-meta" aria-label="Related skills">
+          <span>CAD Modeling</span><span>Tutoring</span><span>Documentation</span>
         </div>
         <div class="exp-date">[Month Year] – Present · La Jolla, CA</div>
         <div class="exp-title">MAE 3</div>
@@ -529,13 +536,9 @@
     </div>
     <div class="projects-grid stagger">
       <div class="proj-card">
-        <div class="proj-img">
-          <!-- ✏️ Replace src with arena photo -->
-          <img src="website pics/suspensionInf.png" alt="Robot Combat Arena" onerror="this.style.display='none'">
-          <div class="card-image-hint" style="height:100%">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            Add a photo
-          </div>
+        <div class="proj-img split-images">
+          <img src="website pics/armorMount.png" alt="Robot build armor mount">
+          <img src="website pics/infantryBig.png" alt="Triton Robotics robot assembly">
         </div>
         <div class="proj-body-wrap">
           <span class="proj-num">01</span>
@@ -551,12 +554,7 @@
       </div>
       <div class="proj-card">
         <div class="proj-img">
-          <!-- ✏️ Replace src with PCB/wearable photo -->
-          <img src="website pics/aynakFlex.png" alt="Flexible PCB" onerror="this.style.display='none'">
-          <div class="card-image-hint" style="height:100%">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            Add a photo
-          </div>
+          <img src="website pics/aynakFlex.png" alt="Flexible PCB for wearable design">
         </div>
         <div class="proj-body-wrap">
           <span class="proj-num">02</span>
@@ -572,12 +570,7 @@
       </div>
       <div class="proj-card">
         <div class="proj-img">
-          <!-- ✏️ Replace src with CAD screenshot -->
-          <img src="" alt="CAD Tutorial" onerror="this.style.display='none'">
-          <div class="card-image-hint" style="height:100%">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            Add a photo
-          </div>
+          <img src="website pics/mae3tutoring.JPEG" alt="CAD tutorial redesign work">
         </div>
         <div class="proj-body-wrap">
           <span class="proj-num">03</span>
@@ -609,48 +602,38 @@
           Outside of engineering I stay active — volleyball, hiking, weightlifting, and yoga (the yoga is injury management, but it still counts).
         </p>
 
-        <div class="skills-sidebar">
-          <div class="skills-sidebar-title">Skills &amp; Tools</div>
-          <div class="skills-cloud">
-            <span class="skill-chip c1">AutoCAD</span>
-            <span class="skill-chip c2">Fusion 360</span>
-            <span class="skill-chip c3">Laser Cutting</span>
-            <span class="skill-chip c4">T-Slot Assembly</span>
-            <span class="skill-chip c5">CAD Modeling</span>
-            <span class="skill-chip c6">Prototyping</span>
-            <span class="skill-chip c1">Product Design</span>
-            <span class="skill-chip c3">Wearable Tech</span>
-            <span class="skill-chip c2">PCB Layout</span>
+        <div class="competencies-grid">
+          <div class="competency-card">
+            <div class="competency-title">Tools</div>
+            <div class="competency-list">
+              <span class="skill-chip">Fusion 360</span>
+              <span class="skill-chip">AutoCAD</span>
+              <span class="skill-chip">PCB Layout</span>
+              <span class="skill-chip">Laser Cutting</span>
+            </div>
+          </div>
+          <div class="competency-card">
+            <div class="competency-title">Skills</div>
+            <div class="competency-list">
+              <span class="skill-chip">CAD Modeling</span>
+              <span class="skill-chip">Prototyping</span>
+              <span class="skill-chip">Product Design</span>
+              <span class="skill-chip">T-Slot Assembly</span>
+              <span class="skill-chip">Wearable Technology</span>
+            </div>
           </div>
         </div>
 
         <div class="about-cta">
-          <!-- ✏️ Replace with your resume PDF path -->
-          <a class="btn btn-beige" href="resume.pdf" target="_blank">Download Resume ↗</a>
-          <!-- ✏️ Replace with your LinkedIn URL -->
-          <a class="btn btn-outline-light" href="https://linkedin.com/in/YOUR-USERNAME" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <!-- ✏️ Replace with your email -->
-          <a class="btn btn-outline-light" href="mailto:your-email@ucsd.edu">Email Me</a>
+        <a class="btn btn-beige" href="website pics/Adriane Lau RESUME.pdf" target="_blank">Download Resume ↗</a>
+        <a class="btn btn-outline-light" href="https://www.linkedin.com/in/adrianelau/" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
       </div>
 
       <div class="about-right reveal">
         <div class="about-photo">
-          <!-- ✏️ Replace src with your about photo e.g. images/adriane-about.jpg -->
-          <img src="images/self.png" alt="Adriane Lau" onerror="this.style.display='none'">
-          <div class="about-photo-hint">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            Add your photo here
-          </div>
+        <img src="website pics/self.JPEG" alt="Adriane Lau">
         </div>
-        <div class="skills-float">
-          <span class="skill-pill s1">AutoCAD</span>
-          <span class="skill-pill s2">Fusion 360</span>
-          <span class="skill-pill s4">T-Slot</span>
-          <span class="skill-pill s5">Prototyping</span>
-          <span class="skill-pill s6">CAD</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -676,7 +659,7 @@
         dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
         ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
       });
-      document.querySelectorAll('a, button, .exp-card, .proj-card, .skill-pill, .skill-chip').forEach(el => {
+      document.querySelectorAll('a, button, .exp-card, .proj-card, .skill-chip').forEach(el => {
         el.addEventListener('mouseenter', () => { dot.style.width = dot.style.height = '12px'; ring.style.width = ring.style.height = '50px'; ring.style.opacity = '0.35'; });
         el.addEventListener('mouseleave', () => { dot.style.width = dot.style.height = '8px'; ring.style.width = ring.style.height = '34px'; ring.style.opacity = '0.45'; });
       });
