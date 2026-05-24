@@ -696,164 +696,54 @@
 
     /* ── ABOUT ── */
     /* ── ABOUT TOOLS & SKILLS LIST ── */
-  .about-competencies {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 2.25rem;
-  }
+.about-competencies {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2.25rem;
+}
 
-  .competency-group {
-    padding: 1.25rem;
-    border: 1px solid rgba(196, 221, 242, 0.18);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.045);
-  }
+.competency-group {
+  min-height: 170px;
+  padding: 1.4rem 1.25rem;
+  border: 1px solid rgba(196, 221, 242, 0.18);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+}
 
-  .competency-title {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--sky);
-    margin-bottom: 0.9rem;
-  }
+.competency-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 1rem;
+}
 
-  .competency-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
+.competency-items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
 
-  .competency-items span {
-    display: inline-flex;
-    padding: 0.3rem 0.72rem;
-    border-radius: 50px;
-    font-size: 0.71rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    color: var(--sky-2);
-    background: rgba(196, 221, 242, 0.09);
-    border: 1px solid rgba(196, 221, 242, 0.18);
-  }
-    #about {
-      background: var(--oxford);
-      color: #fff;
-    }
-
-    #about .section-label::after {
-      background: rgba(196, 221, 242, 0.15);
-    }
-
-    #about .eyebrow { color: var(--sky); }
-
-    #about .eyebrow::before { background: var(--sky); }
-
-    .about-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    .about-left h2 {
-      font-family: var(--round);
-      font-size: clamp(2.2rem, 3.5vw, 4rem);
-      line-height: 1.1;
-      color: #fff;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-left h2 em {
-      color: var(--sky);
-      font-style: normal;
-    }
-
-    .about-left p {
-      font-size: 1rem;
-      color: var(--sky-2);
-      line-height: 1.85;
-      margin-bottom: 1rem;
-      font-weight: 300;
-    }
-
-    .about-cta { margin-top: 2rem; }
-
-    .about-right {
-      position: relative;
-      padding: 1.5rem;
-    }
-
-    .about-photo {
-      width: 100%;
-      height: 640px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 18px;
-      border: 1.5px solid rgba(196, 221, 242, 0.12);
-      overflow: hidden;
-      padding: 0.45rem;
-    }
-
-    .about-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-      border-radius: 14px;
-    }
-
-    .about-visual .bubble { font-size: 0.66rem; }
-
-    /* About bubbles stay around the outside edges of the photo. */
-    .about-visual .tool-1 {
-      top: 2.4rem;
-      left: 0;
-      animation-delay: 0s;
-    }
-
-    .about-visual .tool-2 {
-      top: 2.4rem;
-      right: 0;
-      animation-delay: 0.8s;
-    }
-
-    .about-visual .tool-3 {
-      bottom: 7rem;
-      right: 0;
-      animation-delay: 1.5s;
-    }
-
-    .about-visual .tool-4 {
-      bottom: 2.4rem;
-      left: 0;
-      animation-delay: 2.1s;
-    }
-
-    .about-visual .skill-1 {
-      top: 9.5rem;
-      left: 0;
-      animation-delay: 0.5s;
-    }
-
-    .about-visual .skill-2 {
-      top: 15.5rem;
-      right: 0;
-      animation-delay: 1.2s;
-    }
-
-    .about-visual .skill-3 {
-      bottom: 2.4rem;
-      right: 0;
-      animation-delay: 1.8s;
-    }
-
-    .about-visual .skill-4 {
-      bottom: 7rem;
-      left: 0;
-      animation-delay: 2.5s;
-    }
-
+.competency-items span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: static;
+  padding: 0.38rem 0.82rem;
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+  background: rgba(26, 79, 138, 0.96);
+  border: 1px solid rgba(138, 184, 224, 0.34);
+  box-shadow: 0 5px 14px rgba(0, 33, 71, 0.16);
+}
     /* ── FOOTER ── */
     footer {
       background: #001530;
@@ -1050,7 +940,7 @@
 
     <div class="hero-stats">
       <div class="stat">
-        <div class="stat-num">Anticipated Graduation</div>
+        <div class="stat-num">Graduating</div>
         <div class="stat-label">April 2027</div>
       </div>
       <div class="stat">
@@ -1260,24 +1150,24 @@
   <div class="competency-group">
     <div class="competency-title">Tools</div>
     <div class="competency-items">
-      <span class="bubble blue bottom-left">Fusion 360</span>
-      <span class="bubble blue bottom-left">AutoCAD</span>
-      <span class="bubble blue bottom-left">SolidWorks</span>
-      <span class="bubble blue bottom-left">MATLAB</span>
-      <span class="bubble blue bottom-left">PCB Layout</span>
-      <span class="bubble blue bottom-left">Machine Shop</span>
+      <span>Fusion 360</span>
+      <span>AutoCAD</span>
+      <span>SolidWorks</span>
+      <span>MATLAB</span>
+      <span>PCB Layout</span>
+      <span>Machine Shop</span>
     </div>
   </div>
 
   <div class="competency-group">
     <div class="competency-title">Skills</div>
     <div class="competency-items">
-      <span class="bubble blue bottom-left">CAD Modeling</span>
-      <span class="bubble blue bottom-left">Prototyping</span>
-      <span class="bubble blue bottom-left">Product Design</span>
-      <span class="bubble blue bottom-left">Finite Element Analysis</span>
-      <span class="bubble blue bottom-left">GD&T analysis</span>
-      <span class="bubble blue bottom-left">Teamwork</span>
+      <span>CAD Modeling</span>
+      <span>Prototyping</span>
+      <span>Product Design</span>
+      <span>Finite Element Analysis</span>
+      <span>GD&amp;T Analysis</span>
+      <span>Teamwork</span>
     </div>
   </div>
 </div>
