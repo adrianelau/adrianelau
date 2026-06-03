@@ -916,6 +916,12 @@
     transform: none;
     transition-delay: 0.35s;
   }
+    .stagger.visible > *:nth-child(5) {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.45s;
+  }
+    
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
@@ -1170,8 +1176,49 @@
     <div class="section-label reveal">
       <span class="eyebrow">Projects</span>
     </div>
-
     <div class="projects-grid stagger">
+
+<div class="proj-card">
+        <div class="project-visual bubble-visual">
+          <div class="proj-img image-tile">
+            <img src="inprogress.png" alt="inprogress">
+          </div>
+
+          <div class="bubble-layer" aria-label="Related skills">
+            <span class="bubble blue top-left">Probe sonication</span>
+            <span class="bubble light top-right">Procedural knowledge</span>
+          </div>
+        </div>
+
+        <div class="proj-body-wrap">
+          <span class="proj-num">03</span>
+          <div class="proj-title">Synthesis of Ga-Ind Substance</div>
+          <div class="proj-sub">Luan Lab - Soft Programmable Structures</div>
+          <p class="proj-desc">Currently working to synthesize Ga-Ind to be electromagnetically reconfigured. Developing techniques and smoothing out the experimental process. </p>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="project-visual bubble-visual">
+          <div class="proj-img image-tile">
+            <img src="website pics/torture device.png" alt="Keku Torture">
+          </div>
+
+          <div class="bubble-layer" aria-label="Related skills">
+            <span class="bubble blue top-left">CAD</span>
+            <span class="bubble light top-right">Fusion 360</span>
+            <span class="bubble blue bottom-right">3D printing</span>
+          </div>
+        </div>
+
+        <div class="proj-body-wrap">
+          <span class="proj-num">03</span>
+          <div class="proj-title">PCB board "torture" device</div>
+          <div class="proj-sub">Aynak Inc. - Internship</div>
+          <p class="proj-desc">In order to make product tests easier for our software and electrical team, I built a "torture" device to restrain the PCB boards.</p>
+        </div>
+      </div>
+      
       <div class="proj-card">
         <div class="project-visual bubble-visual">
           <div class="proj-img split-images">
@@ -1216,27 +1263,6 @@
           <div class="proj-title">Infantry is contest ready!</div>
           <div class="proj-sub">Triton Robotics · 24'-25'</div>
           <p class="proj-desc"> This is the "final" robot for our the RoboMaster 2024 competition at UCSD.</p>
-        </div>
-      </div>
-
-      <div class="proj-card">
-        <div class="project-visual bubble-visual">
-          <div class="proj-img image-tile">
-            <img src="website pics/torture device.png" alt="Keku Torture">
-          </div>
-
-          <div class="bubble-layer" aria-label="Related skills">
-            <span class="bubble blue top-left">CAD</span>
-            <span class="bubble light top-right">Fusion 360</span>
-            <span class="bubble blue bottom-right">3D printing</span>
-          </div>
-        </div>
-
-        <div class="proj-body-wrap">
-          <span class="proj-num">03</span>
-          <div class="proj-title">PCB board "torture" device</div>
-          <div class="proj-sub">Aynak Inc. - Internship</div>
-          <p class="proj-desc">In order to make product tests easier for our software and electrical team, I built a "torture" device to restrain the PCB boards.</p>
         </div>
       </div>
 
