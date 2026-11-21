@@ -532,7 +532,33 @@
       right: 1rem;
       animation-delay: 1.7s;
     }
+/* ── STUDY ABROAD 8-PHOTO GALLERY ── */
+.abroad-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.85rem;
+      width: 100%;
+    }
 
+    .abroad-gallery .image-tile {
+      height: 230px;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    .abroad-gallery .image-tile:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 26px rgba(0, 33, 71, 0.12);
+    }
+
+    @media (max-width: 960px) {
+      .abroad-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .abroad-gallery .image-tile {
+        height: min(240px, 44vw);
+      }
+    }
     /* ── DARK RESEARCH SECTION ── */
     .dark-section {
       background: var(--oxford);
@@ -1339,39 +1365,56 @@
   <div class="experience-grid stagger">
     <div class="exp-card featured aynak-featured">
       <div class="aynak-header">
-        <div class="exp-date">Summer 2026 · Hong Kong</div>
-        <div class="exp-title">Chinese University of Hong Kong, CUHK</div>
-        <div class="exp-role">Study Abroad · Creative cities and Urban Sustainability</div>
+        <div class="exp-date">Term / Year · City, Country</div>
+        <div class="exp-title">Host University / Program Name</div>
+        <div class="exp-role">Study Abroad · Mechanical Engineering</div>
       </div>
 
       <div class="aynak-visual bubble-visual">
-        <div class="aynak-images">
+        <div class="abroad-gallery">
           <div class="image-tile">
-            <img src="website pics/studyabroad1.jpg" alt="Study abroad photo 1">
+            <img src="website pics/abroad1.jpg" alt="Study abroad photo 1">
           </div>
           <div class="image-tile">
-            <img src="website pics/studyabroad2.jpg" alt="Study abroad photo 2">
+            <img src="website pics/abroad2.jpg" alt="Study abroad photo 2">
+          </div>
+          <div class="image-tile">
+            <img src="website pics/abroad3.jpg" alt="Study abroad photo 3">
+          </div>
+          <div class="image-tile">
+            <img src="website pics/abroad4.jpg" alt="Study abroad photo 4">
+          </div>
+          <div class="image-tile">
+            <img src="website pics/abroad5.jpg" alt="Study abroad photo 5">
+          </div>
+          <div class="image-tile">
+            <img src="website pics/abroad6.jpg" alt="Study abroad photo 6">
+          </div>
+          <div class="image-tile">
+            <img src="website pics/abroad7.jpg" alt="Study abroad photo 7">
+          </div>
+          <div class="image-tile">
+            <img src="website pics/abroad8.jpg" alt="Study abroad photo 8">
           </div>
         </div>
 
         <div class="bubble-layer" aria-label="Related highlights">
-          <span class="bubble blue">Global Engineering</span>
-          <span class="bubble light">Coursework / Lab</span>
-          <span class="bubble blue">Cultural Exchange</span>
+          <span class="bubble blue">Hitting my roots</span>
+          <span class="bubble light">Meeting up w/ the fam / Lab</span>
+          <span class="bubble blue">Eating good food!!</span>
         </div>
       </div>
 
       <p class="aynak-description">
-        Add a short overview of your study abroad experience here—what program you joined, the classes or labs you took, and what stood out to you.
+        Studying internationally was not a checkbox I expected to tick, but somehow I found the time to visit my Dad's side of culture in Hong Kong (and practice my broken Cantonese)
       </p>
       <ul class="exp-bullets">
-        <li>Took courses or lab work in [Topic / Engineering Area] alongside international students.</li>
-        <li>Explored local design, culture, and daily life in [City / Country].</li>
+        <li>I took Creative Cities and Urban Cultural Life and Urban Sustainability as my electives.</li>
+        <li>On my very packed in weekends, I was able to travel around East Asia - hence all the pics I wanted to display here.</li>
       </ul>
     </div>
   </div>
 </section>
-  
   <!-- ABOUT -->
   <section id="about">
     <div class="section-label reveal">
